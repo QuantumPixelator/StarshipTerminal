@@ -1,0 +1,120 @@
+Model: Independence
+Cost: 6000
+Starting Cargo Pods: 24
+Starting Shields: 24
+Starting Defenders: 8
+Max Cargo Pods: 48
+Max Shields: 56
+Max Defenders: 30
+Special Weapon: None
+Ship Integrity: 110
+
+Model: Nova Cruiser
+Cost: 24000
+Starting Cargo Pods: 42
+Starting Shields: 50
+Starting Defenders: 20
+Max Cargo Pods: 96
+Max Shields: 118
+Max Defenders: 74
+Special Weapon: None
+Ship Integrity: 180
+
+Model: Quantum Vanguard
+Cost: 95000
+Starting Cargo Pods: 70
+Starting Shields: 104
+Starting Defenders: 64
+Max Cargo Pods: 156
+Max Shields: 215
+Max Defenders: 164
+Special Weapon: None
+Ship Integrity: 300
+
+Model: Stellar Phoenix
+Cost: 210000
+Starting Cargo Pods: 96
+Starting Shields: 154
+Starting Defenders: 106
+Max Cargo Pods: 206
+Max Shields: 302
+Max Defenders: 246
+Special Weapon: None
+Ship Integrity: 430
+
+Model: Galactic Horizon
+Cost: 390000
+Starting Cargo Pods: 132
+Starting Shields: 212
+Starting Defenders: 156
+Max Cargo Pods: 284
+Max Shields: 404
+Max Defenders: 344
+Special Weapon: None
+Ship Integrity: 585
+
+Model: Nebula Striker
+Cost: 690000
+Starting Cargo Pods: 162
+Starting Shields: 284
+Starting Defenders: 236
+Max Cargo Pods: 346
+Max Shields: 536
+Max Defenders: 488
+Special Weapon: None
+Ship Integrity: 730
+
+Model: Cosmic Voyager
+Cost: 1180000
+Starting Cargo Pods: 202
+Starting Shields: 352
+Starting Defenders: 292
+Max Cargo Pods: 418
+Max Shields: 648
+Max Defenders: 606
+Special Weapon: None
+Ship Integrity: 920
+
+Model: Infinity Serpent
+Cost: 1950000
+Starting Cargo Pods: 248
+Starting Shields: 438
+Starting Defenders: 388
+Max Cargo Pods: 516
+Max Shields: 808
+Max Defenders: 792
+Special Weapon: None
+Ship Integrity: 1130
+
+Model: Astro Titan
+Cost: 3200000
+Starting Cargo Pods: 306
+Starting Shields: 536
+Starting Defenders: 488
+Max Cargo Pods: 642
+Max Shields: 1004
+Max Defenders: 972
+Special Weapon: None
+Ship Integrity: 1420
+
+Model: Supernova Sentinel
+Cost: 5200000
+Starting Cargo Pods: 396
+Starting Shields: 668
+Starting Defenders: 640
+Max Cargo Pods: 804
+Max Shields: 1288
+Max Defenders: 1264
+Special Weapon: None
+Ship Integrity: 1880
+
+Model: Morning Star
+Cost: 22000000
+Starting Cargo Pods: 1050
+Starting Shields: 2680
+Starting Defenders: 2680
+Max Cargo Pods: 2720
+Max Shields: 4050
+Max Defenders: 4050
+Special Weapon: Celestial Annihilator
+Ship Integrity: 6700

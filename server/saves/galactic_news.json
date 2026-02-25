@@ -1,0 +1,424 @@
+{
+    "items": [
+        {
+            "id": 1771788604600,
+            "timestamp": 1771788604.6005585,
+            "event_type": "daily_income",
+            "title": "Colony Treasury Growth: +1 CR",
+            "body": "Daily colony interest retained in local treasuries: Urth +1 CR (TREASURY 14,601)",
+            "planet": null,
+            "audience": "player",
+            "player": "Zippo"
+        },
+        {
+            "id": 1771788606316,
+            "timestamp": 1771788606.3160305,
+            "event_type": "planet_regen",
+            "title": "Colony Defense Production Update",
+            "body": "Aphelion: +1 fighters, +0 shields",
+            "planet": null,
+            "audience": "player",
+            "player": "Zippo"
+        },
+        {
+            "id": 1771861697179,
+            "timestamp": 1771861697.1791728,
+            "event_type": "daily_income",
+            "title": "Colony Treasury Growth: +8 CR",
+            "body": "Daily colony interest retained in local treasuries: Urth +5 CR (TREASURY 5,014,606) | Titan Station +1 CR (TREASURY 68,001) | Greystoke +1 CR (TREASURY 48,001) | Aphelion +1 CR (TREASURY 139,651)",
+            "planet": null,
+            "audience": "player",
+            "player": "Aeon"
+        },
+        {
+            "id": 1771861698876,
+            "timestamp": 1771861698.8762438,
+            "event_type": "planet_regen",
+            "title": "Colony Defense Production Update",
+            "body": "Urth: +0 fighters, +50 shields | Aphelion: +5 fighters, +0 shields",
+            "planet": null,
+            "audience": "player",
+            "player": "Aeon"
+        },
+        {
+            "id": 1771861953046,
+            "timestamp": 1771861953.0461674,
+            "event_type": "combat_outcome",
+            "title": "Combat Outcome: You LOST",
+            "body": "Engagement vs Nebula Vista [PLANET] at Nebula Vista ended lost with net -9836307 CR.",
+            "planet": "Nebula Vista",
+            "audience": "player",
+            "player": "Aeon"
+        },
+        {
+            "id": 1771861953053,
+            "timestamp": 1771861953.0531166,
+            "event_type": "combat_outcome",
+            "title": "Combat Outcome: Aeon LOST",
+            "body": "Aeon lost engagement vs Nebula Vista [PLANET] with net -9836307 CR.",
+            "planet": "Nebula Vista",
+            "audience": "global",
+            "player": null
+        },
+        {
+            "id": 1771863711546,
+            "timestamp": 1771863711.5463667,
+            "event_type": "planet_conquest",
+            "title": "Planet Captured: Nebula Vista",
+            "body": "Aeon seized control of Nebula Vista.",
+            "planet": "Nebula Vista",
+            "audience": "global",
+            "player": null
+        },
+        {
+            "id": 1771863711555,
+            "timestamp": 1771863711.5559394,
+            "event_type": "combat_outcome",
+            "title": "Combat Outcome: You WON",
+            "body": "Engagement vs Nebula Vista [PLANET] at Nebula Vista ended won with net +836 CR.",
+            "planet": "Nebula Vista",
+            "audience": "player",
+            "player": "Aeon"
+        },
+        {
+            "id": 1771863711562,
+            "timestamp": 1771863711.5623772,
+            "event_type": "combat_outcome",
+            "title": "Combat Outcome: Aeon WON",
+            "body": "Aeon won engagement vs Nebula Vista [PLANET] with net +836 CR.",
+            "planet": "Nebula Vista",
+            "audience": "global",
+            "player": null
+        },
+        {
+            "id": 1771863711568,
+            "timestamp": 1771863711.5688133,
+            "event_type": "daily_income",
+            "title": "Colony Treasury Growth: +2 CR",
+            "body": "Daily colony interest retained in local treasuries: Nebula Vista +2 CR (TREASURY 419,602)",
+            "planet": null,
+            "audience": "player",
+            "player": "Aeon"
+        },
+        {
+            "id": 1771867295186,
+            "timestamp": 1771867295.1868565,
+            "event_type": "planet_conquest",
+            "title": "Planet Captured: Seraphim Cluster",
+            "body": "Aeon seized control of Seraphim Cluster.",
+            "planet": "Seraphim Cluster",
+            "audience": "global",
+            "player": null
+        },
+        {
+            "id": 1771867295197,
+            "timestamp": 1771867295.1976757,
+            "event_type": "combat_outcome",
+            "title": "Combat Outcome: You WON",
+            "body": "Engagement vs Seraphim Cluster [PLANET] at Seraphim Cluster ended won with net +1105 CR.",
+            "planet": "Seraphim Cluster",
+            "audience": "player",
+            "player": "Aeon"
+        },
+        {
+            "id": 1771867295204,
+            "timestamp": 1771867295.2042117,
+            "event_type": "combat_outcome",
+            "title": "Combat Outcome: Aeon WON",
+            "body": "Aeon won engagement vs Seraphim Cluster [PLANET] with net +1105 CR.",
+            "planet": "Seraphim Cluster",
+            "audience": "global",
+            "player": null
+        },
+        {
+            "id": 1771870959445,
+            "timestamp": 1771870959.4456604,
+            "event_type": "planet_conquest",
+            "title": "Planet Captured: Solaris",
+            "body": "Aeon seized control of Solaris.",
+            "planet": "Solaris",
+            "audience": "global",
+            "player": null
+        },
+        {
+            "id": 1771870959454,
+            "timestamp": 1771870959.4548965,
+            "event_type": "combat_outcome",
+            "title": "Combat Outcome: You WON",
+            "body": "Engagement vs Solaris [PLANET] at Solaris ended won with net +1245 CR.",
+            "planet": "Solaris",
+            "audience": "player",
+            "player": "Aeon"
+        },
+        {
+            "id": 1771870959461,
+            "timestamp": 1771870959.461136,
+            "event_type": "combat_outcome",
+            "title": "Combat Outcome: Aeon WON",
+            "body": "Aeon won engagement vs Solaris [PLANET] with net +1245 CR.",
+            "planet": "Solaris",
+            "audience": "global",
+            "player": null
+        },
+        {
+            "id": 1771871193570,
+            "timestamp": 1771871193.5700643,
+            "event_type": "planet_defense_transfer",
+            "title": "Solaris: +100 Defenders Deployed",
+            "body": "You transferred 100 fighters to Solaris. Planet defenders now 100/100.",
+            "planet": "Solaris",
+            "audience": "player",
+            "player": "Aeon"
+        },
+        {
+            "id": 1771871207058,
+            "timestamp": 1771871207.0582924,
+            "event_type": "planet_defense_transfer",
+            "title": "Solaris: +3196 Shields Routed",
+            "body": "You routed 3196 shield units to Solaris. Planet shields now 3196/4000.",
+            "planet": "Solaris",
+            "audience": "player",
+            "player": "Aeon"
+        },
+        {
+            "id": 1771874290525,
+            "timestamp": 1771874290.5254653,
+            "event_type": "planet_regen",
+            "title": "Colony Defense Production Update",
+            "body": "Aphelion: +1 fighters, +0 shields",
+            "planet": null,
+            "audience": "player",
+            "player": "Aeon"
+        },
+        {
+            "id": 1772037755824,
+            "timestamp": 1772037755.8243027,
+            "event_type": "daily_income",
+            "title": "Colony Treasury Growth: +465 CR",
+            "body": "Daily colony interest retained in local treasuries: Urth +10 CR (TREASURY 5,014,616) | Nebula Vista +2 CR (TREASURY 419,604) | Titan Station +4 CR (TREASURY 1,868,005) | Greystoke +2 CR (TREASURY 868,003) | Solaris +13 CR (TREASURY 13,036,013) | Aphelion +2 CR (TREASURY 139,653) | Seraphim Cluster +432 CR (TREASURY 431,508,432)",
+            "planet": null,
+            "audience": "player",
+            "player": "Aeon"
+        },
+        {
+            "id": 1772037790271,
+            "timestamp": 1772037790.2711964,
+            "event_type": "planet_regen",
+            "title": "Colony Defense Production Update",
+            "body": "Urth: +0 fighters, +4 shields | Aphelion: +11 fighters, +0 shields",
+            "planet": null,
+            "audience": "player",
+            "player": "Aeon"
+        },
+        {
+            "id": 1772038644163,
+            "timestamp": 1772038644.163694,
+            "event_type": "planet_conquest",
+            "title": "Planet Captured: Infernix",
+            "body": "Aeon seized control of Infernix.",
+            "planet": "Infernix",
+            "audience": "global",
+            "player": null
+        },
+        {
+            "id": 1772038644171,
+            "timestamp": 1772038644.1712685,
+            "event_type": "combat_outcome",
+            "title": "Combat Outcome: You WON",
+            "body": "Engagement vs Infernix [PLANET] at Infernix ended won with net +1334 CR.",
+            "planet": "Infernix",
+            "audience": "player",
+            "player": "Aeon"
+        },
+        {
+            "id": 1772038644179,
+            "timestamp": 1772038644.179841,
+            "event_type": "combat_outcome",
+            "title": "Combat Outcome: Aeon WON",
+            "body": "Aeon won engagement vs Infernix [PLANET] with net +1334 CR.",
+            "planet": "Infernix",
+            "audience": "global",
+            "player": null
+        },
+        {
+            "id": 1772038644197,
+            "timestamp": 1772038644.197034,
+            "event_type": "daily_income",
+            "title": "Colony Treasury Growth: +3 CR",
+            "body": "Daily colony interest retained in local treasuries: Infernix +3 CR (TREASURY 157,925)",
+            "planet": null,
+            "audience": "player",
+            "player": "Aeon"
+        },
+        {
+            "id": 1772038857271,
+            "timestamp": 1772038857.2717488,
+            "event_type": "planet_conquest",
+            "title": "Planet Captured: Terrarin",
+            "body": "Aeon seized control of Terrarin.",
+            "planet": "Terrarin",
+            "audience": "global",
+            "player": null
+        },
+        {
+            "id": 1772038857281,
+            "timestamp": 1772038857.2817075,
+            "event_type": "combat_outcome",
+            "title": "Combat Outcome: You WON",
+            "body": "Engagement vs Terrarin [PLANET] at Terrarin ended won with net +987 CR.",
+            "planet": "Terrarin",
+            "audience": "player",
+            "player": "Aeon"
+        },
+        {
+            "id": 1772038857291,
+            "timestamp": 1772038857.2919838,
+            "event_type": "combat_outcome",
+            "title": "Combat Outcome: Aeon WON",
+            "body": "Aeon won engagement vs Terrarin [PLANET] with net +987 CR.",
+            "planet": "Terrarin",
+            "audience": "global",
+            "player": null
+        },
+        {
+            "id": 1772038857302,
+            "timestamp": 1772038857.3026514,
+            "event_type": "daily_income",
+            "title": "Colony Treasury Growth: +20 CR",
+            "body": "Daily colony interest retained in local treasuries: Terrarin +20 CR (TREASURY 4,534,020)",
+            "planet": null,
+            "audience": "player",
+            "player": "Aeon"
+        },
+        {
+            "id": 1772039409663,
+            "timestamp": 1772039409.6632354,
+            "event_type": "planet_conquest",
+            "title": "Planet Captured: Zephyrion",
+            "body": "Aeon seized control of Zephyrion.",
+            "planet": "Zephyrion",
+            "audience": "global",
+            "player": null
+        },
+        {
+            "id": 1772039409672,
+            "timestamp": 1772039409.6728842,
+            "event_type": "combat_outcome",
+            "title": "Combat Outcome: You WON",
+            "body": "Engagement vs Zephyrion [PLANET] at Zephyrion ended won with net +1122 CR.",
+            "planet": "Zephyrion",
+            "audience": "player",
+            "player": "Aeon"
+        },
+        {
+            "id": 1772039409682,
+            "timestamp": 1772039409.6824238,
+            "event_type": "combat_outcome",
+            "title": "Combat Outcome: Aeon WON",
+            "body": "Aeon won engagement vs Zephyrion [PLANET] with net +1122 CR.",
+            "planet": "Zephyrion",
+            "audience": "global",
+            "player": null
+        },
+        {
+            "id": 1772042538400,
+            "timestamp": 1772042538.4007478,
+            "event_type": "daily_income",
+            "title": "Colony Treasury Growth: +432 CR",
+            "body": "Daily colony interest retained in local treasuries: Seraphim Cluster +432 CR (TREASURY 431,508,864)",
+            "planet": null,
+            "audience": "player",
+            "player": "Aeon"
+        },
+        {
+            "id": 1772047820366,
+            "timestamp": 1772047820.3666146,
+            "event_type": "admin_reset",
+            "title": "Campaign Reset Executed",
+            "body": "An administrator reset the current game state. Commander saves removed: 3.",
+            "planet": null,
+            "audience": "global",
+            "player": null
+        },
+        {
+            "id": 1772052308289,
+            "timestamp": 1772052308.2891755,
+            "event_type": "combat_outcome",
+            "title": "Combat Outcome: You LOST",
+            "body": "Engagement vs Urth [PLANET] at Urth ended lost with net -528823 CR.",
+            "planet": "Urth",
+            "audience": "player",
+            "player": "smoke_cmdr_1772052308"
+        },
+        {
+            "id": 1772052308289,
+            "timestamp": 1772052308.2891755,
+            "event_type": "combat_outcome",
+            "title": "Combat Outcome: smoke_cmdr_1772052308 LOST",
+            "body": "smoke_cmdr_1772052308 lost engagement vs Urth [PLANET] with net -528823 CR.",
+            "planet": "Urth",
+            "audience": "global",
+            "player": null
+        },
+        {
+            "id": 1772052369466,
+            "timestamp": 1772052369.4662242,
+            "event_type": "combat_outcome",
+            "title": "Combat Outcome: You LOST",
+            "body": "Engagement vs Novos [PLANET] at Novos ended lost with net -853054 CR.",
+            "planet": "Novos",
+            "audience": "player",
+            "player": "smoke_cmdr_1772052369"
+        },
+        {
+            "id": 1772052369476,
+            "timestamp": 1772052369.4766726,
+            "event_type": "combat_outcome",
+            "title": "Combat Outcome: smoke_cmdr_1772052369 LOST",
+            "body": "smoke_cmdr_1772052369 lost engagement vs Novos [PLANET] with net -853054 CR.",
+            "planet": "Novos",
+            "audience": "global",
+            "player": null
+        },
+        {
+            "id": 1772052399666,
+            "timestamp": 1772052399.6663826,
+            "event_type": "combat_outcome",
+            "title": "Combat Outcome: You LOST",
+            "body": "Engagement vs Novos [PLANET] at Novos ended lost with net -1085028 CR.",
+            "planet": "Novos",
+            "audience": "player",
+            "player": "smoke_cmdr_1772052399"
+        },
+        {
+            "id": 1772052399666,
+            "timestamp": 1772052399.6663826,
+            "event_type": "combat_outcome",
+            "title": "Combat Outcome: smoke_cmdr_1772052399 LOST",
+            "body": "smoke_cmdr_1772052399 lost engagement vs Novos [PLANET] with net -1085028 CR.",
+            "planet": "Novos",
+            "audience": "global",
+            "player": null
+        },
+        {
+            "id": 1772052447903,
+            "timestamp": 1772052447.903595,
+            "event_type": "combat_outcome",
+            "title": "Combat Outcome: You LOST",
+            "body": "Engagement vs Novos [PLANET] at Novos ended lost with net -825171 CR.",
+            "planet": "Novos",
+            "audience": "player",
+            "player": "smoke_cmdr_1772052447"
+        },
+        {
+            "id": 1772052447916,
+            "timestamp": 1772052447.9166093,
+            "event_type": "combat_outcome",
+            "title": "Combat Outcome: smoke_cmdr_1772052447 LOST",
+            "body": "smoke_cmdr_1772052447 lost engagement vs Novos [PLANET] with net -825171 CR.",
+            "planet": "Novos",
+            "audience": "global",
+            "player": null
+        }
+    ]
+}

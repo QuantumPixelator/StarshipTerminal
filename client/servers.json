@@ -1,0 +1,10 @@
+{
+  "servers": [
+    {
+      "name": "localhost",
+      "host": "localhost",
+      "port": 8765,
+      "url": "ws://localhost:8765"
+    }
+  ]
+}

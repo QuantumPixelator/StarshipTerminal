@@ -1,0 +1,307 @@
+Name: Novos
+Population: 410,000
+Description: A volcanic smuggler port where magnetic storms scramble scans and create short windows for risky, high-margin trades.
+Vendor: Vex Korr
+Trade Center: Eclipse Port
+Defenders: 3,200
+Shields: 7,800
+Bank: 6,200
+Items: 14,800
+Active: On
+
+Name: Urth
+Population: 980,000
+Description: A battered legacy world that still anchors baseline pricing for lawful sectors, favored by careful commanders starting new routes.
+Vendor: Old Teddy
+Trade Center: Skytown Mall
+Defenders: 2,600
+Shields: 6,400
+Bank: 5,200
+Items: 12,400
+Active: On
+
+Name: Mastodrun
+Population: 3,780,000
+Description: The sector's central exchange where bulk commodities are efficient but prestige and luxury goods command steep premiums.
+Vendor: Galactic Traders Guild
+Trade Center: Starlight Exchange
+Defenders: 6,800
+Shields: 16,000
+Bank: 12,800
+Items: 28,000
+Active: On
+
+Name: Zephyrion
+Population: 2,140,000
+Description: A precision-tech megacity that discounts core utility gear but marks up premium neural and cryogenic upgrades.
+Vendor: Nexus Technologies
+Trade Center: Cybernetic Emporium
+Defenders: 4,200
+Shields: 9,800
+Bank: 8,600
+Items: 19,600
+Active: On
+
+Name: Nebula Vista
+Population: 1,690,000
+Description: A frontier relay inside ionized dust clouds where logistics delays make essentials cheap and relic cargo expensive.
+Vendor: Astral Relics
+Trade Center: Nebula Bazaar
+Defenders: 2,900
+Shields: 7,000
+Bank: 6,100
+Items: 14,000
+Active: On
+
+Name: Gaianeesh
+Population: 2,870,000
+Description: A bio-engineering world where regenerative supplies are abundant while exotic curios and climate hardware run hot.
+Vendor: Verdant Ventures
+Trade Center: Biomimicry Expanse
+Defenders: 3,600
+Shields: 8,600
+Bank: 7,500
+Items: 17,400
+Active: On
+
+Name: Arcaniska
+Population: 1,320,000
+Description: A shadow-academy world of relic auctions and unstable prototypes, with severe spreads between common and forbidden tech.
+Vendor: Enigmatic Exports
+Trade Center: Mystical Enclave
+Defenders: 2,500
+Shields: 6,200
+Bank: 5,400
+Items: 12,600
+Active: On
+
+Name: Titan Station
+Population: 560,000
+Description: A hardened orbital station where shipping bottlenecks spike strategic modules while refinery byproducts sell below average.
+Vendor: Celestial Commodities
+Trade Center: Stellar Emporium
+Defenders: 3,400
+Shields: 8,400
+Bank: 7,800
+Items: 17,600
+Active: On
+
+Name: Avalon
+Population: 1,210,000
+Description: A high-culture leisure world where boutique therapies run rich but basic recreation and hydration can be sourced cheaply.
+Vendor: Artisana Exquisites
+Trade Center: Serenity Plaza
+Defenders: 2,400
+Shields: 6,000
+Bank: 5,000
+Items: 12,000
+Active: On
+
+Name: Greystoke
+Population: 730,000
+Description: A hostile jungle reserve famous for black-market biotech salvage, rewarding dangerous runs with volatile arbitrage.
+Vendor: Verdant Ventura
+Trade Center: Bio-Exotica Hub
+Defenders: 2,100
+Shields: 5,200
+Bank: 4,300
+Items: 10,500
+Active: On
+
+Name: Shadien
+Population: 1,450,000
+Description: A contraband crossroads where fast cash flows through illicit channels and legal freight is often undercut.
+Vendor: Jax the Ghost
+Trade Center: Black Market Bazaar
+Defenders: 3,300
+Shields: 7,900
+Bank: 7,000
+Items: 16,200
+Active: On
+
+Name: Celestia
+Population: 4,690,000
+Description: The Alliance capital enforces strict tariffs: military-grade and imported hardware trend expensive while regulated services stay stable.
+Vendor: High Officer Vale
+Trade Center: Unity Plaza
+Defenders: 9,200
+Shields: 22,000
+Bank: 16,800
+Items: 36,000
+Active: On
+
+Name: Aetheria
+Population: 1,930,000
+Description: Floating shard-cities built around energy vortices where gravity tech can be cheap but arcane signaling gear spikes hard.
+Vendor: Arcane Curiosities
+Trade Center: Cloudspire Enclave
+Defenders: 3,000
+Shields: 7,300
+Bank: 6,200
+Items: 14,500
+Active: On
+
+Name: Pyrothos
+Population: 840,000
+Description: A furnace-world weapons market where cooling systems and purification hardware are scarce and therefore brutally priced.
+Vendor: Inferno Armaments
+Trade Center: Scorched Citadel
+Defenders: 3,000
+Shields: 7,200
+Bank: 5,900
+Items: 13,600
+Active: On
+
+Name: Solaris
+Population: 3,210,000
+Description: A star-adjacent power economy where reactor inputs are discounted but thermal management and precision propulsion are costly.
+Vendor: HelioTech Industries
+Trade Center: Solara Hub
+Defenders: 3,900
+Shields: 9,500
+Bank: 7,900
+Items: 18,500
+Active: On
+
+Name: Terrarin
+Population: 2,750,000
+Description: A retro-commercial world that rewards commodity nostalgia runs while charging premiums for curated collector cargo.
+Vendor: Retro Reboot
+Trade Center: Nostalgia Junction
+Defenders: 3,400
+Shields: 8,200
+Bank: 7,000
+Items: 16,400
+Active: On
+
+Name: Elysium
+Population: 2,430,000
+Description: A luxury resort sphere where indulgence goods are expensive but staple life-support consumables can be sourced below market.
+Vendor: Serenity Splendors
+Trade Center: Eden Haven
+Defenders: 3,200
+Shields: 7,600
+Bank: 6,500
+Items: 15,200
+Active: On
+
+Name: Titanica
+Population: 670,000
+Description: A mining moon with ruin salvage rights where heavy equipment and hardened components dominate local price swings.
+Vendor: Lunar Traders Consortium
+Trade Center: Crater's Edge Outpost
+Defenders: 2,800
+Shields: 6,900
+Bank: 5,600
+Items: 13,200
+Active: On
+
+Name: Euphorin
+Population: 2,260,000
+Description: An AI-governed cyberstate that discounts mature electronics while charging heavily for secure infrastructure and elite modules.
+Vendor: ZenTech Innovations
+Trade Center: Synaptic Nexus
+Defenders: 4,100
+Shields: 9,800
+Bank: 8,700
+Items: 19,800
+Active: On
+
+Name: Aphelion
+Population: 790,000
+Description: A law-thin edge outpost where contraband and tactical gear are lucrative but trusted utility channels are limited.
+Vendor: Black Market Syndicate
+Trade Center: Outlaw's Haven
+Defenders: 3,600
+Shields: 8,800
+Bank: 7,600
+Items: 17,500
+Active: On
+
+Name: Aurora
+Population: 1,810,000
+Description: A cryo-industrial world where thermal balance drives trade cycles: cold-chain tech is cheap, heaters and water are expensive.
+Vendor: CryoTech Solutions
+Trade Center: Frostfall Bazaar
+Defenders: 3,100
+Shields: 7,600
+Bank: 6,800
+Items: 15,800
+Active: On
+
+Name: Hyperius
+Population: 3,020,000
+Description: A robotics foundry world with efficient automation staples and expensive advanced drivetrain and defense assemblies.
+Vendor: RoboCorp Enterprises
+Trade Center: Mechanica Central
+Defenders: 4,500
+Shields: 10,800
+Bank: 9,300
+Items: 21,200
+Active: On
+
+Name: Seraphim Cluster
+Population: 3,540,000
+Description: Pilgrimage-linked worlds where relic speculation causes wild markups while basic medical and language services remain accessible.
+Vendor: Celestial Sanctum
+Trade Center: Divine Nexus
+Defenders: 3,700
+Shields: 9,000
+Bank: 7,600
+Items: 17,600
+Active: On
+
+Name: Asterudor
+Population: 2,660,000
+Description: A competitive mining frontier where bulk inputs are cheap but mission-critical survival and command goods can spike overnight.
+Vendor: Stellar Prospectors Guild
+Trade Center: Asteria Outpost
+Defenders: 4,300
+Shields: 10,400
+Bank: 8,600
+Items: 19,700
+Active: On
+
+Name: Atlantiz
+Population: 2,080,000
+Description: An oceanic civilization with abundant marine staples and costly deep-pressure industrial components.
+Vendor: Aquatica Ventures
+Trade Center: Oceanic Bazaar
+Defenders: 3,000
+Shields: 7,300
+Bank: 6,200
+Items: 14,500
+Active: On
+
+Name: Enerlos
+Population: 4,180,000
+Description: A heavy-industry titan where commodity throughput is excellent but high-energy combat and control systems carry sharp premiums.
+Vendor: TechnoCorp Industries
+Trade Center: Power Nexus Station
+Defenders: 6,200
+Shields: 15,000
+Bank: 12,200
+Items: 27,400
+Active: On
+
+Name: Zednine
+Population: 60,500
+Description: A black-site research world under heavy patrol where rare access keys and sanctioned hardware dominate a tiny, extreme market.
+Vendor: Site Custodian J-09
+Trade Center: Restricted Exchange
+Defenders: 5,200
+Shields: 13,000
+Bank: 11,200
+Items: 26,000
+Active: On
+
+Name: Infernix
+Population: 1,670,000
+Description: A newly stabilized lava world where route growth drives strong demand for infrastructure and coolant logistics.
+Vendor: Independent Market Authority
+Trade Center: Central Exchange
+Defenders: 3,400
+Shields: 8,200
+Bank: 7,100
+Items: 16,600
+Active: On
