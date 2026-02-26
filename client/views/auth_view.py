@@ -464,7 +464,7 @@ class AuthenticationView(arcade.View):
 
         self.input_dialog = None
         self.message_box = None
-        self.status = "Enter your commander name to begin"
+        self.status = "Enter your account name to begin"
 
     def _initialize_view(self):
         arcade.set_background_color((10, 10, 15))
@@ -546,7 +546,7 @@ class AuthenticationView(arcade.View):
         self.state = "username"
         saved_name = get_server_username(self.server_url)
         self.input_dialog = InputDialog(
-            "Enter your commander name:", saved_name, max_length=30
+            "Enter your account name:", saved_name, max_length=30
         )
 
     def _prompt_password(self, is_new_account=False):
@@ -568,13 +568,13 @@ class AuthenticationView(arcade.View):
         self.state = "character_select"
         if not self.available_characters:
             self.input_dialog = InputDialog(
-                "No linked characters found. Enter a character name:",
+                "No linked commanders found. Enter a commander name:",
                 self.username,
                 max_length=30,
             )
             return
 
-        lines = ["Select character (number or name):"]
+        lines = ["Select commander (number or name):"]
         for idx, entry in enumerate(self.available_characters, start=1):
             display_name = str(
                 entry.get("display_name")
@@ -636,7 +636,7 @@ class AuthenticationView(arcade.View):
         self.state = "new_character_name"
         self.character_prompt_mode = mode
         self.input_dialog = InputDialog(
-            "Enter your character name:",
+            "Enter your commander name:",
             self.pending_character_name or self.username,
             max_length=30,
         )
@@ -694,8 +694,8 @@ class AuthenticationView(arcade.View):
             character_name = str(result or "").strip()
             if len(character_name) < 2:
                 self.message_box = MessageBox(
-                    "Invalid Character Name",
-                    "Character name must be at least 2 characters.",
+                    "Invalid Commander Name",
+                    "Commander name must be at least 2 characters.",
                     "error",
                 )
                 self._prompt_new_character_name(mode=self.character_prompt_mode)
@@ -733,7 +733,7 @@ class AuthenticationView(arcade.View):
             if chosen is None:
                 self.message_box = MessageBox(
                     "Invalid Selection",
-                    "Enter a valid character number or name.",
+                    "Enter a valid commander number or name.",
                     "error",
                 )
                 self._prompt_character_selection()
@@ -807,9 +807,7 @@ class AuthenticationView(arcade.View):
                 self.status = f"Welcome back, {self.username}!"
                 self._prompt_password(is_new_account=False)
             else:
-                self.status = (
-                    f"New commander detected. Create account for {self.username}"
-                )
+                self.status = f"New account detected. Create account for {self.username}"
                 self._prompt_password(is_new_account=True)
 
         except Exception as e:

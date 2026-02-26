@@ -5,7 +5,7 @@ Vendor: Vex Korr
 Trade Center: Eclipse Port
 Defenders: 3,200
 Shields: 7,800
-Bank: Off
+Bank: On
 Items: Warp Drives,357;Fighter Squadron,148;Stealth Cloaking Devices,376;Black Market Passkey,305;Hyperdrive Stabilizers,206;Fuel Cells,94;Cryogenic Stasis Pods,372;Photon Destabilizer,688;Cargo Pod,147
 Active: On
 
@@ -38,7 +38,7 @@ Vendor: Nexus Technologies
 Trade Center: Cybernetic Emporium
 Defenders: 4,200
 Shields: 9,800
-Bank: Off
+Bank: On
 Items: Stealth Cloaking Devices,522;Nanobot Repair Kits,85;Emergency Med Gel,203;Gravity Manipulation Cores,292;Hyperdrive Stabilizers,150;Fuel Cells,75;Solar Seafood Platter,31;Cheap Plastic Toys,43;Magnetic Rail Couplers,205;Warp Drives,292;Energy Shields,350
 Active: On
 
@@ -49,7 +49,7 @@ Vendor: Astral Relics
 Trade Center: Nebula Bazaar
 Defenders: 2,900
 Shields: 7,000
-Bank: Off
+Bank: On
 Items: Solar Seafood Platter,32;Asteroid Mining Drones,274;Encrypted Star Charts,164;Cheap Plastic Toys,25;Fighter Squadron,111;Energy Shields,196;Gravity Manipulation Cores,438;Purified Water Extractor,194;Shield Capacitor Matrix,330;Holographic Projectors,123;Black Market Passkey,471;Nanobot Repair Kits,77
 Active: On
 
@@ -60,7 +60,7 @@ Vendor: Verdant Ventures
 Trade Center: Biomimicry Expanse
 Defenders: 3,600
 Shields: 8,600
-Bank: Off
+Bank: On
 Items: Fuel Cells,126;Exotic Alien Artifacts,479;Magnetic Rail Couplers,134;Fusion Reactors,394;Purified Water Extractor,277;Shield Capacitor Matrix,322;Ion Thruster Coils,179;Emergency Med Gel,160;Universal Language Translators,188;Cybernetic Implants,416
 Active: On
 
@@ -71,7 +71,7 @@ Vendor: Enigmatic Exports
 Trade Center: Mystical Enclave
 Defenders: 2,500
 Shields: 6,200
-Bank: Off
+Bank: On
 Items: Frigid Air Appliance,247;Quantum Data Chips,220;Emergency Med Gel,160;Asteroid Mining Drones,273;Nuclear Heater Core,160;Exotic Alien Artifacts,372;Nanobot Repair Kits,74;Ion Thruster Coils,150;Black Market Passkey,667;Cryogenic Stasis Pods,532;Photon Destabilizer,618;Psychedelic Fog Machine,103
 Active: On
 
@@ -82,7 +82,7 @@ Vendor: Celestial Commodities
 Trade Center: Stellar Emporium
 Defenders: 3,400
 Shields: 8,400
-Bank: Off
+Bank: On
 Items: Magnetic Rail Couplers,137;Frigid Air Appliance,228;Ion Thruster Coils,168;Photon Destabilizer,618;Terraform Seed Vault,230;Asteroid Mining Drones,287;Stealth Cloaking Devices,403;Shield Capacitor Matrix,365;Exotic Alien Artifacts,413;Psychedelic Fog Machine,67;Nuclear Heater Core,177
 Active: On
 
@@ -93,7 +93,7 @@ Vendor: Artisana Exquisites
 Trade Center: Serenity Plaza
 Defenders: 2,400
 Shields: 6,000
-Bank: Off
+Bank: On
 Items: Solar Seafood Platter,32;Frigid Air Appliance,183;Nanobot Repair Kits,121;Terraform Seed Vault,333;Cargo Pod,200;Neural Interface Upgrades,225;Psychedelic Fog Machine,91;Holographic Projectors,183
 Active: On
 
@@ -104,7 +104,7 @@ Vendor: Verdant Ventura
 Trade Center: Bio-Exotica Hub
 Defenders: 2,100
 Shields: 5,200
-Bank: Off
+Bank: On
 Items: Fusion Reactors,463;Cryogenic Stasis Pods,316;Nuclear Heater Core,214;Magnetic Rail Couplers,135;Cheap Plastic Toys,41;Shield Capacitor Matrix,406;Quantum Data Chips,115;Stealth Cloaking Devices,272
 Active: On
 
@@ -115,7 +115,7 @@ Vendor: Jax the Ghost
 Trade Center: Black Market Bazaar
 Defenders: 3,300
 Shields: 7,900
-Bank: Off
+Bank: On
 Items: Fuel Cells,57;Cargo Pod,165;Frigid Air Appliance,293;Energy Shields,208;Ion Thruster Coils,164;Purified Water Extractor,301;Shield Capacitor Matrix,288;Nuclear Heater Core,271;Photon Destabilizer,569;Cheap Plastic Toys,47
 Active: On
 
@@ -137,7 +137,7 @@ Vendor: Arcane Curiosities
 Trade Center: Cloudspire Enclave
 Defenders: 3,000
 Shields: 7,300
-Bank: Off
+Bank: On
 Items: Emergency Med Gel,114;Purified Water Extractor,253;Fuel Cells,79;Bio-Regeneration Serums,215;Black Market Passkey,305;Ion Thruster Coils,367;Photon Destabilizer,527;Cheap Plastic Toys,58;Hyperdrive Stabilizers,243
 Active: On
 
@@ -148,7 +148,7 @@ Vendor: Inferno Armaments
 Trade Center: Scorched Citadel
 Defenders: 3,000
 Shields: 7,200
-Bank: Off
+Bank: On
 Items: Cheap Plastic Toys,42;Magnetic Rail Couplers,196;Fuel Cells,105;Encrypted Star Charts,174;Hyperdrive Stabilizers,177;Health Stabilizer Kit,111;Asteroid Mining Drones,193;Photon Destabilizer,275
 Active: On
 
@@ -170,7 +170,7 @@ Vendor: Retro Reboot
 Trade Center: Nostalgia Junction
 Defenders: 3,400
 Shields: 8,200
-Bank: Off
+Bank: On
 Items: Cheap Plastic Toys,27;Cryogenic Stasis Pods,335;Hyperdrive Stabilizers,116;Frigid Air Appliance,299;Magnetic Rail Couplers,191;Cybernetic Implants,455;Encrypted Star Charts,119;Asteroid Mining Drones,285;Psychedelic Fog Machine,111;Nuclear Heater Core,190
 Active: On
 
@@ -181,7 +181,7 @@ Vendor: Serenity Splendors
 Trade Center: Eden Haven
 Defenders: 3,200
 Shields: 7,600
-Bank: Off
+Bank: On
 Items: Exotic Alien Artifacts,276;Hyperdrive Stabilizers,306;Fighter Squadron,230;Ion Thruster Coils,299;Bio-Regeneration Serums,325;Cybernetic Implants,567;Fusion Reactors,530;Gravity Manipulation Cores,363
 Active: On
 
@@ -192,7 +192,7 @@ Vendor: Lunar Traders Consortium
 Trade Center: Crater's Edge Outpost
 Defenders: 2,800
 Shields: 6,900
-Bank: Off
+Bank: On
 Items: Stealth Cloaking Devices,462;Holographic Projectors,143;Ion Thruster Coils,252;Warp Drives,162;Neural Interface Upgrades,386;Magnetic Rail Couplers,216;Emergency Med Gel,136;Quantum Data Chips,237;Exotic Alien Artifacts,241;Fighter Squadron,143;Hyperdrive Stabilizers,252;Universal Language Translators,194
 Active: On
 
@@ -203,7 +203,7 @@ Vendor: ZenTech Innovations
 Trade Center: Synaptic Nexus
 Defenders: 4,100
 Shields: 9,800
-Bank: Off
+Bank: On
 Items: Stealth Cloaking Devices,691;Cheap Plastic Toys,26;Energy Shields,375;Terraform Seed Vault,387;Black Market Passkey,801;Frigid Air Appliance,173;Fighter Squadron,166;Ion Thruster Coils,165;Neural Interface Upgrades,365;Purified Water Extractor,386;Quantum Data Chips,239;Holographic Projectors,106
 Active: On
 
@@ -214,7 +214,7 @@ Vendor: Black Market Syndicate
 Trade Center: Outlaw's Haven
 Defenders: 3,600
 Shields: 8,800
-Bank: Off
+Bank: On
 Items: Cargo Pod,218;Nuclear Heater Core,196;Emergency Med Gel,155;Energy Shields,268;Neural Interface Upgrades,393;Warp Drives,218;Purified Water Extractor,320;Cheap Plastic Toys,57
 Active: On
 
@@ -225,7 +225,7 @@ Vendor: CryoTech Solutions
 Trade Center: Frostfall Bazaar
 Defenders: 3,100
 Shields: 7,600
-Bank: Off
+Bank: On
 Items: Frigid Air Appliance,243;Exotic Alien Artifacts,488;Ion Thruster Coils,263;Cybernetic Implants,595;Cryogenic Stasis Pods,247;Bio-Regeneration Serums,153;Emergency Med Gel,118;Cargo Pod,175;Holographic Projectors,172;Gravity Manipulation Cores,228;Terraform Seed Vault,395
 Active: On
 
@@ -247,7 +247,7 @@ Vendor: Celestial Sanctum
 Trade Center: Divine Nexus
 Defenders: 3,700
 Shields: 9,000
-Bank: Off
+Bank: On
 Items: Psychedelic Fog Machine,144;Nuclear Heater Core,179;Asteroid Mining Drones,249;Gravity Manipulation Cores,242;Cargo Pod,173;Frigid Air Appliance,230;Terraform Seed Vault,368;Energy Shields,167;Stealth Cloaking Devices,606;Fusion Reactors,315;Bio-Regeneration Serums,341;Exotic Alien Artifacts,290
 Active: On
 
@@ -258,7 +258,7 @@ Vendor: Stellar Prospectors Guild
 Trade Center: Asteria Outpost
 Defenders: 4,300
 Shields: 10,400
-Bank: Off
+Bank: On
 Items: Energy Shields,220;Universal Language Translators,91;Fusion Reactors,471;Warp Drives,311;Frigid Air Appliance,264;Fuel Cells,113;Terraform Seed Vault,215;Magnetic Rail Couplers,158;Cryogenic Stasis Pods,389;Shield Capacitor Matrix,426;Fighter Squadron,121;Nuclear Heater Core,206
 Active: On
 
@@ -291,7 +291,7 @@ Vendor: Site Custodian J-09
 Trade Center: Restricted Exchange
 Defenders: 5,200
 Shields: 13,000
-Bank: Off
+Bank: On
 Items: Psychedelic Fog Machine,108;Holographic Projectors,182;Quantum Data Chips,132;Asteroid Mining Drones,207;Cargo Pod,181;Nanobot Repair Kits,72;Purified Water Extractor,384;Fuel Cells,68;Health Stabilizer Kit,276;Hyperdrive Stabilizers,237
 Active: On
 
@@ -302,6 +302,6 @@ Vendor: Independent Market Authority
 Trade Center: Central Exchange
 Defenders: 3,400
 Shields: 8,200
-Bank: Off
+Bank: On
 Items: Neural Interface Upgrades,266;Health Stabilizer Kit,130;Fuel Cells,52;Psychedelic Fog Machine,142;Warp Drives,187;Cheap Plastic Toys,56;Gravity Manipulation Cores,461;Exotic Alien Artifacts,297
 Active: On

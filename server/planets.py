@@ -358,6 +358,11 @@ class Planet:
         """Randomly fluctuate item price modifiers. Standard +/- 15%, Smuggling +/- 40%."""
         import random
 
+        if self.name == "Urth":
+            for item in [k for k in base_prices.keys() if k]:
+                self.item_modifiers[item] = 100
+            return
+
         # Standard items: Fluctuate modifier between 85% and 115% of current modifier
         for item in self.item_modifiers:
             variance = random.uniform(0.85, 1.15)
@@ -670,6 +675,11 @@ def _rebalance_planet_economy(planets):
                 sink.item_modifiers[item], rng.randint(125, 160)
             )
 
+    urth = next((p for p in planets if p.name == "Urth"), None)
+    if urth:
+        for item in [k for k in base_prices.keys() if k]:
+            urth.item_modifiers[item] = 100
+
 
 def _spread_planet_coordinates(planets):
     if len(planets) < 2:
@@ -837,17 +847,6 @@ def generate_planets():
                     # All planets with banks have basic repair facilities
                     if bank:
                         planet.repair_multiplier = 1.0
-
-                    # Assign Repair Multipliers to 5 specific planets
-                    repair_stations = {
-                        "Urth": 1.0,  # Standard hub
-                        "Mastodrun": 0.8,  # Competitive metropolis
-                        "Zephyrion": 1.5,  # High-tech/Premium
-                        "Novos": 0.6,  # Cheap/Dirty (smuggler port)
-                        "Nebula Vista": 1.3,  # Remote/High-logistic cost
-                    }
-                    if name in repair_stations:
-                        planet.repair_multiplier = repair_stations[name]
 
                     # Crew Services Configuration
                     if name == "Mastodrun":

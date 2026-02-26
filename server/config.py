@@ -766,6 +766,8 @@ class ConfigApp(ctk.CTk):
                 row.pack(fill="x", padx=14, pady=4)
 
                 label_text = key.replace("_", " ").title()
+                if key == "enable_bank":
+                    label_text = "Global Bank / Repairs"
                 label_block = ctk.CTkFrame(row, fg_color="transparent")
                 label_block.pack(side="left", fill="x", expand=True, padx=(0, 6))
 
@@ -844,9 +846,10 @@ class ConfigApp(ctk.CTk):
     def _get_default_settings_template(self):
         disk_settings = self._load_settings_template_from_disk()
         if disk_settings:
+            disk_settings.setdefault("enable_bank", True)
             return disk_settings
 
-        return {}
+        return {"enable_bank": True}
 
     def _set_setting_widget_value(self, key, value):
         widget = self.settings_widgets.get(key)
@@ -940,6 +943,8 @@ class ConfigApp(ctk.CTk):
 
     def _setting_group_name(self, key):
         k = str(key).lower()
+        if k == "enable_bank":
+            return "Economy"
         if k == "server_port" or k == "galactic_news_window_days":
             return "Server & Session"
         if k.startswith("audio_") or k.startswith("accessibility_"):
@@ -983,10 +988,13 @@ class ConfigApp(ctk.CTk):
         return order.get(self._setting_group_name(key), 99)
 
     def _setting_display_rank(self, key):
+        if key == "enable_bank":
+            return -100
         return self.default_settings_order.get(key, 10_000)
 
     def _setting_help_text(self, key):
         help_map = {
+            "enable_bank": "Global master switch for all planet banking and repair access. OFF overrides every planet's Bank / Repairs toggle.",
             "enable_combat": "Master toggle for orbital and planetary combat systems.",
             "enable_mail": "Enables player-to-player and system mailbox messages.",
             "allow_multiple_games": "Allow multiple commander save profiles per account. Turn OFF to enforce one save profile per account.",
@@ -1171,7 +1179,9 @@ class ConfigApp(ctk.CTk):
         self.planet_editor["trade"] = self._row_entry(form, "Trade Center")
         self.planet_editor["defenders"] = self._row_entry(form, "Defenders")
         self.planet_editor["shields"] = self._row_entry(form, "Shields")
-        self.planet_editor["bank"] = self._row_switch(form, "Bank", value=False)
+        self.planet_editor["bank"] = self._row_switch(
+            form, "Bank / Repairs", value=False
+        )
         self.planet_editor["items"] = self._row_entry(form, "Items (Name,Price;...)")
 
         # Action buttons

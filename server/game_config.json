@@ -73,6 +73,7 @@
         "refuel_timer_enabled": true,
         "refuel_timer_max_refuels": 2,
         "refuel_timer_window_hours": 12,
-        "refuel_timer_cost_multiplier_pct": 200
+        "refuel_timer_cost_multiplier_pct": 200,
+        "enable_bank": true
     }
 }
