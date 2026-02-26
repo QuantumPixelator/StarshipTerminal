@@ -1,6 +1,12 @@
 {
   "servers": [
     {
+      "name": "Starship Terminal Online",
+      "host": "192.3.16.80",
+      "port": 8765,
+      "url": "ws://192.3.16.80:8765"
+    },
+    {
       "name": "localhost",
       "host": "localhost",
       "port": 8765,
