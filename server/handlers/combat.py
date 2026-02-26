@@ -162,9 +162,9 @@ def _h_get_special_weapon_status(server, session, gm, params):
 
     try:
         player_name = getattr(gm.player, "name", "Unknown")
-        enabled = bool(gm.config.get("enable_special_weapons", True))
+        enabled = bool(gm.config.get("enable_special_weapons"))
         weapon_name = getattr(gm.player.spaceship, "special_weapon", None)
-        cooldown_hours = float(gm.config.get("combat_special_weapon_cooldown_hours", 36.0))
+        cooldown_hours = float(gm.config.get("combat_special_weapon_cooldown_hours"))
         last_used = float(getattr(gm.player, "last_special_weapon_time", 0.0))
         now = time.time()
         elapsed_hours = (now - last_used) / 3600.0

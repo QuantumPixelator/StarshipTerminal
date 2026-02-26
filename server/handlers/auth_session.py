@@ -118,7 +118,7 @@ def _h_new_game(server, session, gm, params):
             return {"success": False, "message": "Player name is required."}
         
         eff_account = account_safe or server._safe_name(player_name)
-        allow_multiple_games = bool(gm.config.get("allow_multiple_games", False))
+        allow_multiple_games = bool(gm.config.get("allow_multiple_games"))
         linked_chars = server._get_account_characters(eff_account)
         linked_names = {
             server._safe_name(entry.get("character_name"))

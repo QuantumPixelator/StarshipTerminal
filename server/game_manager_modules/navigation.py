@@ -11,8 +11,8 @@ class NavigationMixin:
             mult = float(self.config.get("fuel_usage_multiplier", 1.15))
         except Exception:
             mult = 1.15
-        # Global balance adjustment: +20% fuel usage across the board.
-        return max(0.0, mult * 1.20)
+        # Global balance adjustment: -10% fuel usage across the board.
+        return max(0.0, mult * 0.90)
 
     def _scale_and_round_fuel_usage(self, amount, minimum=0.0):
         scaled = max(0.0, float(amount)) * self._get_fuel_usage_multiplier()
@@ -44,9 +44,9 @@ class NavigationMixin:
         return str(self.resolve_travel_event_payload(event, "AUTO"))
 
     def roll_travel_event_payload(self, new_planet, dist):
-        if not self.config.get("enable_travel_events", True):
+        if not self.config.get("enable_travel_events"):
             return None
-        chance = float(self.config.get("travel_event_chance", 0.20))
+        chance = float(self.config.get("travel_event_chance"))
         chance = max(0.0, min(1.0, chance))
         if random.random() > chance:
             return None
@@ -452,9 +452,9 @@ class NavigationMixin:
                     continue
 
                 is_abandoned = False
-                if self.config.get("enable_abandonment", True):
+                if self.config.get("enable_abandonment"):
                     last_save = float(data.get("last_save_timestamp", 0) or 0)
-                    days_limit = self.config.get("abandonment_days", 7)
+                    days_limit = self.config.get("abandonment_days")
                     seconds_limit = float(days_limit) * 86400
                     if last_save > 0 and (time.time() - last_save) >= seconds_limit:
                         is_abandoned = True

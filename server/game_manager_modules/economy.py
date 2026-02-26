@@ -64,10 +64,10 @@ class EconomyMixin:
                 "reason": "This contact is not bribable.",
                 "base_cost": 0,
                 "current_level": self._get_bribe_level(target.name),
-                "max_level": int(self.config.get("bribe_max_level", 3)),
+                "max_level": int(self.config.get("bribe_max_level")),
             }
 
-        max_level = max(1, int(self.config.get("bribe_max_level", 3)))
+        max_level = max(1, int(self.config.get("bribe_max_level")))
         level = self._get_bribe_level(target.name)
         if level >= max_level:
             return {
@@ -78,9 +78,9 @@ class EconomyMixin:
                 "max_level": max_level,
             }
 
-        growth = max(1.01, float(self.config.get("bribe_cost_growth", 1.35)))
+        growth = max(1.01, float(self.config.get("bribe_cost_growth")))
         heat = self._get_law_heat(target.name)
-        heat_step = max(0.0, float(self.config.get("bribe_price_heat_step", 0.015)))
+        heat_step = max(0.0, float(self.config.get("bribe_price_heat_step")))
         heat_mult = 1.0 + (heat * heat_step)
         ship_level = max(1, int(self.get_ship_level()))
         ship_price_step = max(
@@ -138,7 +138,7 @@ class EconomyMixin:
             "cost": int(quote.get("cost", 0)) if quote.get("cost") is not None else 0,
             "level": int(self._get_bribe_level(target.name)),
             "max_level": int(
-                quote.get("max_level", self.config.get("bribe_max_level", 3))
+                quote.get("max_level", self.config.get("bribe_max_level"))
             ),
             "remaining_seconds": int(remaining),
             "heat": int(self._get_law_heat(target.name)),
@@ -208,7 +208,7 @@ class EconomyMixin:
         }
 
     def _get_configured_bribe_max_level(self):
-        return max(1, int(self.config.get("bribe_max_level", 3) or 3))
+        return max(1, int(self.config.get("bribe_max_level") or 3))
 
     def _normalize_required_smuggling_level(self, required_level):
         if required_level is None:
@@ -328,7 +328,7 @@ class EconomyMixin:
 
         qty = max(1, int(quantity))
         qty_step = max(
-            0.0, float(self.config.get("contraband_detection_quantity_step", 0.03))
+            0.0, float(self.config.get("contraband_detection_quantity_step"))
         )
         chance *= 1.0 + (math.sqrt(qty) * qty_step)
 
@@ -336,7 +336,7 @@ class EconomyMixin:
         heat_scan_step = float(self.config.get("law_heat_scan_chance_step", 0.015))
         chance *= 1.0 + (heat * heat_scan_step)
 
-        tier_step = float(self.config.get("contraband_detection_tier_step", 0.035))
+        tier_step = float(self.config.get("contraband_detection_tier_step"))
         chance *= 1.0 + ((int(profile.get("tier_rank", 1)) - 1) * tier_step)
 
         item_meta = self._get_smuggling_item_metadata(item_name)
@@ -355,7 +355,7 @@ class EconomyMixin:
 
         bribe_level = self._get_bribe_level(target.name)
         bribe_reduction = float(
-            self.config.get("bribe_detection_reduction_per_level", 0.08)
+            self.config.get("bribe_detection_reduction_per_level")
         )
         chance *= max(0.35, 1.0 - (bribe_level * bribe_reduction))
 
@@ -507,8 +507,8 @@ class EconomyMixin:
             return
 
         item_name = random.choice(list(planet.items.keys()))
-        min_discount = int(self.config.get("port_spotlight_discount_min", 12))
-        max_discount = int(self.config.get("port_spotlight_discount_max", 28))
+        min_discount = int(self.config.get("port_spotlight_discount_min"))
+        max_discount = int(self.config.get("port_spotlight_discount_max"))
         if max_discount < min_discount:
             max_discount = min_discount
         discount_pct = max(5, random.randint(min_discount, max_discount))
@@ -550,7 +550,7 @@ class EconomyMixin:
             self.player.last_commander_stipend_time = time.time()
             return False, ""
 
-        hours = max(1, int(self.config.get("commander_stipend_hours", 8)))
+        hours = max(1, int(self.config.get("commander_stipend_hours")))
         interval = hours * 3600
         now = time.time()
         elapsed = now - float(self.player.last_commander_stipend_time)
@@ -561,7 +561,7 @@ class EconomyMixin:
         if cycles <= 0:
             return False, ""
 
-        amount = max(100, int(self.config.get("commander_stipend_amount", 350)))
+        amount = max(100, int(self.config.get("commander_stipend_amount")))
         payout = int(amount * cycles)
         self.player.credits += payout
         self.player.last_commander_stipend_time = float(
@@ -814,7 +814,7 @@ class EconomyMixin:
                     planet.name, item_name, action="SELL"
                 )
                 profile = self._get_contraband_profile(item_name)
-                tier_step = float(self.config.get("contraband_price_tier_step", 0.14))
+                tier_step = float(self.config.get("contraband_price_tier_step"))
                 contraband_mult = 1.0 + (
                     (int(profile.get("tier_rank", 1)) - 1) * tier_step * 0.55
                 )
@@ -825,13 +825,13 @@ class EconomyMixin:
                 contraband_mult *= 1.0 + (value_ratio * 0.10)
                 bribe_level = self._get_bribe_level(planet.name)
                 bribe_sell_bonus = float(
-                    self.config.get("bribe_smuggling_sell_bonus_per_level", 0.09)
+                    self.config.get("bribe_smuggling_sell_bonus_per_level")
                 )
                 contraband_mult *= 1.0 + (max(0, bribe_level) * bribe_sell_bonus)
                 return max(1, int(round(base_market * sell_mult * contraband_mult)))
 
         base_value = int(base_prices.get(item_name, 200))
-        salvage_multiplier = float(self.config.get("salvage_sell_multiplier", 0.55))
+        salvage_multiplier = float(self.config.get("salvage_sell_multiplier"))
         salvage_multiplier = max(0.05, min(1.0, salvage_multiplier))
         raw_price = int(round(base_value * salvage_multiplier))
         if p_name:
@@ -967,7 +967,7 @@ class EconomyMixin:
     def _generate_trade_contract(self, force=False, arc_state=None):
         if not self.player or not self.current_planet:
             return False, ""
-        if not self.config.get("enable_trade_contracts", True):
+        if not self.config.get("enable_trade_contracts"):
             return False, ""
 
         if self.get_active_trade_contract() and not force:
@@ -1018,7 +1018,7 @@ class EconomyMixin:
         qty_high = max(qty_low, min(20, ship_cargo // 3))
         quantity = random.randint(qty_low, qty_high)
 
-        reward_mult = float(self.config.get("trade_contract_reward_multiplier", 1.1))
+        reward_mult = float(self.config.get("trade_contract_reward_multiplier"))
         chain_bonus = self._get_contract_chain_bonus_factor()
         event_mult = 1.0
         evt = self.get_planet_event(self.current_planet.name)
@@ -1034,7 +1034,7 @@ class EconomyMixin:
                 * event_mult,
             )
         )
-        hours = max(1, int(self.config.get("trade_contract_hours", 4)))
+        hours = max(1, int(self.config.get("trade_contract_hours")))
         now = time.time()
 
         self.active_trade_contract = {
@@ -1061,7 +1061,7 @@ class EconomyMixin:
         if not self.player:
             return False, ""
 
-        cost = max(0, int(self.config.get("contract_reroll_cost", 600)))
+        cost = max(0, int(self.config.get("contract_reroll_cost")))
         if self.player.credits < cost:
             return False, f"NEED {cost:,} CR TO REROLL CONTRACT."
 
@@ -1107,7 +1107,7 @@ class EconomyMixin:
             arc_step = int(completed.get("arc_step", 1))
             arc_total_steps = int(completed.get("arc_total_steps", 1))
 
-            rep_bonus = int(self.config.get("reputation_contract_completion_bonus", 8))
+            rep_bonus = int(self.config.get("reputation_contract_completion_bonus"))
             if route_type == "SMUGGLING":
                 new_frontier = self._adjust_frontier_standing(max(2, rep_bonus // 2))
                 new_auth = self._adjust_authority_standing(-max(1, rep_bonus // 4))
@@ -1231,9 +1231,9 @@ class EconomyMixin:
         next_level = int(quote.get("next_level", current_level + 1))
         duration_h = max(
             1.0,
-            float(self.config.get("bribe_base_duration_hours", 4))
+            float(self.config.get("bribe_base_duration_hours"))
             + (
-                next_level * float(self.config.get("bribe_duration_per_level_hours", 2))
+                next_level * float(self.config.get("bribe_duration_per_level_hours"))
             ),
         )
         expires_at = time.time() + (duration_h * 3600.0)
@@ -1243,12 +1243,12 @@ class EconomyMixin:
         }
         self._refresh_bribe_registry()
 
-        auth_hit = max(1, int(self.config.get("bribe_authority_hit_per_level", 5)))
-        front_gain = max(1, int(self.config.get("bribe_frontier_gain_per_level", 4)))
+        auth_hit = max(1, int(self.config.get("bribe_authority_hit_per_level")))
+        front_gain = max(1, int(self.config.get("bribe_frontier_gain_per_level")))
         new_auth = self._adjust_authority_standing(-auth_hit * max(1, next_level))
         new_frontier = self._adjust_frontier_standing(front_gain * max(1, next_level))
 
-        heat_drop = int(self.config.get("bribe_heat_reduction_per_level", 4)) * max(
+        heat_drop = int(self.config.get("bribe_heat_reduction_per_level")) * max(
             1, next_level
         )
         heat_after = self._adjust_law_heat(planet.name, -heat_drop)
@@ -1357,7 +1357,7 @@ class EconomyMixin:
                 )
                 bribe_level = self._get_bribe_level(planet.name)
                 bribe_discount_step = float(
-                    self.config.get("bribe_smuggling_discount_per_level", 0.06)
+                    self.config.get("bribe_smuggling_discount_per_level")
                 )
                 smuggle_discount = min(
                     0.40,
@@ -1420,13 +1420,13 @@ class EconomyMixin:
             if is_contraband:
                 bribe_level = self._get_bribe_level(planet.name)
                 sell_bonus_step = float(
-                    self.config.get("bribe_smuggling_sell_bonus_per_level", 0.09)
+                    self.config.get("bribe_smuggling_sell_bonus_per_level")
                 )
                 sell_mult = 1.0 + (max(0, bribe_level) * sell_bonus_step)
                 if not planet.is_smuggler_hub and bribe_level <= 0:
                     sell_mult *= max(
                         0.35,
-                        float(self.config.get("smuggle_nonhub_sell_penalty", 0.72)),
+                        float(self.config.get("smuggle_nonhub_sell_penalty")),
                     )
                 price = max(1, int(round(price * sell_mult)))
 
@@ -1439,7 +1439,7 @@ class EconomyMixin:
                 )
             if success and is_contraband:
                 rep_penalty_per_unit = abs(
-                    int(self.config.get("reputation_contraband_trade_penalty", 2))
+                    int(self.config.get("reputation_contraband_trade_penalty"))
                 )
                 if contraband_profile:
                     rep_penalty_per_unit = max(

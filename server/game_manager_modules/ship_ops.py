@@ -3,21 +3,23 @@ import time
 
 class ShipOpsMixin:
     def _get_refuel_timer_config(self):
-        enabled = bool(self.config.get("refuel_timer_enabled", True))
+        enabled = bool(self.config.get("refuel_timer_enabled"))
         try:
-            max_refuels = int(float(self.config.get("refuel_timer_max_refuels", 3)))
+            max_refuels = int(float(self.config.get("refuel_timer_max_refuels")))
         except Exception:
-            max_refuels = 3
+            max_refuels = int(float(self.config.get("refuel_timer_max_refuels") or 0))
         try:
-            window_hours = float(self.config.get("refuel_timer_window_hours", 12))
+            window_hours = float(self.config.get("refuel_timer_window_hours"))
         except Exception:
-            window_hours = 12.0
+            window_hours = float(self.config.get("refuel_timer_window_hours") or 0.0)
         try:
             cost_multiplier_pct = float(
-                self.config.get("refuel_timer_cost_multiplier_pct", 200)
+                self.config.get("refuel_timer_cost_multiplier_pct")
             )
         except Exception:
-            cost_multiplier_pct = 200.0
+            cost_multiplier_pct = float(
+                self.config.get("refuel_timer_cost_multiplier_pct") or 0.0
+            )
 
         max_refuels = max(1, max_refuels)
         window_hours = max(0.25, window_hours)
@@ -134,13 +136,13 @@ class ShipOpsMixin:
         return int(max(1, tier))
 
     def get_docking_fee(self, planet=None, ship=None):
-        base_fee = float(self.config.get("base_docking_fee", 10))
+        base_fee = float(self.config.get("base_docking_fee"))
         level_multiplier = float(
-            self.config.get("docking_fee_ship_level_multiplier", 1.0)
+            self.config.get("docking_fee_ship_level_multiplier")
         )
         ship_level = self.get_ship_level(ship)
         rep = self._get_sector_reputation()
-        rep_step = float(self.config.get("reputation_docking_fee_step", 0.03))
+        rep_step = float(self.config.get("reputation_docking_fee_step"))
         rep_tiers = int(rep // 20)
         rep_modifier = 1.0 - (rep_tiers * rep_step)
         rep_modifier = max(0.70, min(1.40, rep_modifier))

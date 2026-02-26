@@ -433,23 +433,18 @@ class ConfigApp(ctk.CTk):
             with open(self.config_path, "r") as f:
                 self.config = json.load(f)
         else:
-            self.config = {
-                "settings": {
-                    "enable_combat": True,
-                    "enable_mail": True,
-                    "allow_multiple_games": True,
-                    "starting_credits": 200,
-                    "bank_interest_rate": 0.05,
-                    "base_docking_fee": 10,
-                    "audio_enabled": True,
-                    "audio_ui_volume": 0.7,
-                    "audio_combat_volume": 0.8,
-                    "audio_ambient_volume": 0.45,
-                    "reduced_effects_mode": False,
-                    "accessibility_large_text_mode": False,
-                    "accessibility_color_safe_palette": False,
-                }
-            }
+            self.config = {"settings": self._get_default_settings_template()}
+
+    def _load_settings_template_from_disk(self):
+        if not os.path.exists(self.config_path):
+            return {}
+        try:
+            with open(self.config_path, "r", encoding="utf-8") as f:
+                payload = json.load(f)
+            settings = payload.get("settings", {}) if isinstance(payload, dict) else {}
+            return dict(settings) if isinstance(settings, dict) else {}
+        except Exception:
+            return {}
 
     def _normalize_planets_file_if_needed(self):
         if not os.path.exists(self.planets_path):
@@ -847,82 +842,11 @@ class ConfigApp(ctk.CTk):
             entry_widget.insert(0, filtered)
 
     def _get_default_settings_template(self):
-        return {
-            "enable_combat": True,
-            "enable_mail": True,
-            "allow_multiple_games": True,
-            "server_port": 8765,
-            "enable_abandonment": True,
-            "abandonment_days": 30,
-            "planet_auto_combat_threshold_pct": 65,
-            "starting_credits": 200,
-            "bank_interest_rate": 0.05,
-            "owned_planet_interest_rate": 0.000001,
-            "planet_price_penalty_multiplier": 1.75,
-            "planet_arrival_pause_seconds": 5,
-            "base_docking_fee": 10,
-            "docking_fee_ship_level_multiplier": 1.0,
-            "salvage_sell_multiplier": 0.55,
-            "enable_trade_contracts": True,
-            "trade_contract_hours": 4,
-            "trade_contract_reward_multiplier": 1.1,
-            "contract_reroll_cost": 600,
-            "enable_travel_events": True,
-            "travel_event_chance": 0.2,
-            "refuel_timer_enabled": True,
-            "refuel_timer_max_refuels": 3,
-            "refuel_timer_window_hours": 12,
-            "refuel_timer_cost_multiplier_pct": 200,
-            "commander_stipend_hours": 8,
-            "commander_stipend_amount": 350,
-            "port_spotlight_discount_min": 12,
-            "port_spotlight_discount_max": 28,
-            "contract_chain_bonus_per_completion": 0.05,
-            "contract_chain_bonus_cap": 0.3,
-            "galactic_news_window_days": 5,
-            "victory_planet_ownership_pct": 60,
-            "victory_authority_min": -100,
-            "victory_authority_max": 100,
-            "victory_frontier_min": -100,
-            "victory_frontier_max": 100,
-            "victory_reset_days": 7,
-            "reputation_bribe_penalty": 12,
-            "reputation_contraband_trade_penalty": 2,
-            "reputation_contract_completion_bonus": 8,
-            "reputation_hostile_npc_bonus": 4,
-            "reputation_docking_fee_step": 0.03,
-            "contraband_price_tier_step": 0.14,
-            "contraband_price_heat_step": 0.005,
-            "contraband_detection_tier_step": 0.035,
-            "contraband_detection_quantity_step": 0.03,
-            "smuggle_nonhub_sell_penalty": 0.72,
-            "bribe_base_duration_hours": 4,
-            "bribe_duration_per_level_hours": 2,
-            "bribe_cost_growth": 1.35,
-            "bribe_price_heat_step": 0.015,
-            "bribe_max_level": 3,
-            "bribe_detection_reduction_per_level": 0.08,
-            "bribe_heat_reduction_per_level": 4,
-            "bribe_smuggling_discount_per_level": 0.06,
-            "bribe_smuggling_sell_bonus_per_level": 0.09,
-            "bribe_authority_hit_per_level": 5,
-            "bribe_frontier_gain_per_level": 4,
-            "combat_enemy_scale_per_ship_level": 0.06,
-            "combat_win_streak_bonus_per_win": 0.04,
-            "combat_win_streak_bonus_cap": 0.25,
-            "enable_special_weapons": True,
-            "combat_special_weapon_cooldown_hours": 36.0,
-            "combat_special_weapon_damage_multiplier": 2.0,
-            "combat_special_weapon_pop_reduction_min": 0.10,
-            "combat_special_weapon_pop_reduction_max": 0.45,
-            "audio_enabled": True,
-            "audio_ui_volume": 0.7,
-            "audio_combat_volume": 0.8,
-            "audio_ambient_volume": 0.45,
-            "reduced_effects_mode": False,
-            "accessibility_large_text_mode": False,
-            "accessibility_color_safe_palette": False,
-        }
+        disk_settings = self._load_settings_template_from_disk()
+        if disk_settings:
+            return disk_settings
+
+        return {}
 
     def _set_setting_widget_value(self, key, value):
         widget = self.settings_widgets.get(key)

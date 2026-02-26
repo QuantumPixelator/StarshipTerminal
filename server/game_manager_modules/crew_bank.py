@@ -36,7 +36,7 @@ class CrewBankMixin:
 
     def _planet_interest_projection(self, planet):
         balance = max(0, int(getattr(planet, "credit_balance", 0)))
-        rate = max(0.0, float(self.config.get("owned_planet_interest_rate", 0.000001)))
+        rate = max(0.0, float(self.config.get("owned_planet_interest_rate")))
         if balance <= 0 or rate <= 0:
             return 0
         projected = int(round(balance * rate))
@@ -90,7 +90,7 @@ class CrewBankMixin:
             self.player.last_bank_interest_time = now
 
         if now - self.player.last_bank_interest_time >= 86400:
-            rate = self.config.get("bank_interest_rate", 0.05)
+            rate = self.config.get("bank_interest_rate")
             bank_payout = int(self.player.bank_balance * rate)
             if bank_payout > 0:
                 self.player.bank_balance += bank_payout
@@ -100,7 +100,7 @@ class CrewBankMixin:
 
         pop_rate = max(
             0.0,
-            float(self.config.get("owned_planet_interest_rate", 0.000001)),
+            float(self.config.get("owned_planet_interest_rate")),
         )
         for planet in self._get_owned_planets():
             self._ensure_planet_credit_state(planet, now=now)

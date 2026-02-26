@@ -22,18 +22,18 @@ class AudioManager:
             view: The parent PlanetView instance
         """
         self.view = view
-        self.enabled = bool(view.network.config.get("audio_enabled", True))
+        self.enabled = bool(view.network.config.get("audio_enabled"))
         self.sfx_channel_volume = {
             "ui": max(
-                0.0, min(1.0, float(view.network.config.get("audio_ui_volume", 0.70)))
+                0.0, min(1.0, float(view.network.config.get("audio_ui_volume")))
             ),
             "combat": max(
                 0.0,
-                min(1.0, float(view.network.config.get("audio_combat_volume", 0.80))),
+                min(1.0, float(view.network.config.get("audio_combat_volume"))),
             ),
             "ambient": max(
                 0.0,
-                min(1.0, float(view.network.config.get("audio_ambient_volume", 0.45))),
+                min(1.0, float(view.network.config.get("audio_ambient_volume"))),
             ),
         }
         self.sfx_assets = {}

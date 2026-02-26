@@ -55,11 +55,11 @@ class PlanetView(arcade.View):
         self.font_ui = get_font("ui")
         self.font_ui_bold = get_font("ui_bold")
         self.large_text_mode = bool(
-            self.network.config.get("accessibility_large_text_mode", False)
+            self.network.config.get("accessibility_large_text_mode")
         )
         self.ui_text_scale = 1.18 if self.large_text_mode else 1.0
         self.color_safe_palette = bool(
-            self.network.config.get("accessibility_color_safe_palette", False)
+            self.network.config.get("accessibility_color_safe_palette")
         )
         if self.color_safe_palette:
             global COLOR_PRIMARY, COLOR_SECONDARY, COLOR_ACCENT, COLOR_TEXT_DIM
@@ -68,18 +68,18 @@ class PlanetView(arcade.View):
             COLOR_ACCENT = (255, 92, 92)
             COLOR_TEXT_DIM = (190, 190, 190)
 
-        self.audio_enabled = bool(self.network.config.get("audio_enabled", True))
+        self.audio_enabled = bool(self.network.config.get("audio_enabled"))
         self.sfx_channel_volume = {
             "ui": max(
-                0.0, min(1.0, float(self.network.config.get("audio_ui_volume", 0.70)))
+                0.0, min(1.0, float(self.network.config.get("audio_ui_volume")))
             ),
             "combat": max(
                 0.0,
-                min(1.0, float(self.network.config.get("audio_combat_volume", 0.80))),
+                min(1.0, float(self.network.config.get("audio_combat_volume"))),
             ),
             "ambient": max(
                 0.0,
-                min(1.0, float(self.network.config.get("audio_ambient_volume", 0.45))),
+                min(1.0, float(self.network.config.get("audio_ambient_volume"))),
             ),
         }
         self.sfx_assets = {}
@@ -101,10 +101,10 @@ class PlanetView(arcade.View):
 
         self.menu_options = ["MARKET", "TRAVEL", "REFUEL", "SYSTEMS"]
 
-        if self.network.config.get("enable_combat", True):
+        if self.network.config.get("enable_combat"):
             self.menu_options.insert(1, "ORBIT SCAN")
 
-        if self.network.config.get("enable_mail", True):
+        if self.network.config.get("enable_mail"):
             self.menu_options.append("MAIL")
 
         if self.network.current_planet.name == "Urth":
@@ -145,7 +145,7 @@ class PlanetView(arcade.View):
         self.combat_flash_color = COLOR_SECONDARY
         self.post_combat_actions = []
         self.combat_effects_enabled = not bool(
-            self.network.config.get("reduced_effects_mode", False)
+            self.network.config.get("reduced_effects_mode")
         )
         self.combat_impact_effects = []
         self.combat_spec_weapon_confirm = False
@@ -939,7 +939,7 @@ class PlanetView(arcade.View):
     def _draw_trade_contract_panel(self, x, y):
         contract = self.network.get_active_trade_contract()
         panel_w, panel_h = 520, MARKET_CONTRACT_PANEL_HEIGHT
-        reroll_cost = int(self.network.config.get("contract_reroll_cost", 600))
+        reroll_cost = int(self.network.config.get("contract_reroll_cost"))
 
         arcade.draw_lbwh_rectangle_filled(x, y, panel_w, panel_h, (8, 14, 20, 220))
         arcade.draw_lbwh_rectangle_outline(x, y, panel_w, panel_h, COLOR_SECONDARY, 1)
@@ -1527,16 +1527,14 @@ class PlanetView(arcade.View):
             if (
                 s.get("status") == "ACTIVE"
                 and s.get("target_type") == "PLANET"
-                and self.network.config.get("enable_special_weapons", True)
+                and self.network.config.get("enable_special_weapons")
                 and getattr(self.network.player.spaceship, "special_weapon", None)
             ):
                 import time as _time
 
                 weapon_name = str(self.network.player.spaceship.special_weapon)
                 cooldown_hours = float(
-                    self.network.config.get(
-                        "combat_special_weapon_cooldown_hours", 36.0
-                    )
+                    self.network.config.get("combat_special_weapon_cooldown_hours")
                 )
                 last_used = float(
                     getattr(self.network.player, "last_special_weapon_time", 0.0)
@@ -1821,25 +1819,21 @@ class PlanetView(arcade.View):
                 )
             )
             dmg_mult = float(
-                self.network.config.get("combat_special_weapon_damage_multiplier", 2.0)
+                self.network.config.get("combat_special_weapon_damage_multiplier")
             )
             pop_min_pct = int(
                 float(
-                    self.network.config.get(
-                        "combat_special_weapon_pop_reduction_min", 0.10
-                    )
+                    self.network.config.get("combat_special_weapon_pop_reduction_min")
                 )
                 * 100
             )
             pop_max_pct = int(
                 float(
-                    self.network.config.get(
-                        "combat_special_weapon_pop_reduction_max", 0.45
-                    )
+                    self.network.config.get("combat_special_weapon_pop_reduction_max")
                 )
                 * 100
             )
-            cd_h = self.network.config.get("combat_special_weapon_cooldown_hours", 36)
+            cd_h = self.network.config.get("combat_special_weapon_cooldown_hours")
 
             # Modal box centered in the combat window
             box_w, box_h = 680, 210
@@ -6561,15 +6555,13 @@ class PlanetView(arcade.View):
                 _in(rects["special_weapon"])
                 and s.get("status") == "ACTIVE"
                 and s.get("target_type") == "PLANET"
-                and self.network.config.get("enable_special_weapons", True)
+                and self.network.config.get("enable_special_weapons")
                 and getattr(self.network.player.spaceship, "special_weapon", None)
             ):
                 import time as _time
 
                 cooldown_hours = float(
-                    self.network.config.get(
-                        "combat_special_weapon_cooldown_hours", 36.0
-                    )
+                    self.network.config.get("combat_special_weapon_cooldown_hours")
                 )
                 last_used = float(
                     getattr(self.network.player, "last_special_weapon_time", 0.0)

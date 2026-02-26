@@ -5,7 +5,7 @@
         "enable_abandonment": true,
         "abandonment_days": 30,
         "planet_auto_combat_threshold_pct": 65,
-        "starting_credits": 500,
+        "starting_credits": 1000,
         "bank_interest_rate": 0.05,
         "base_docking_fee": 10,
         "docking_fee_ship_level_multiplier": 3.0,

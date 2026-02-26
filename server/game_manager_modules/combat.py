@@ -7,7 +7,7 @@ import random
 class CombatMixin:
     def _get_combat_enemy_scale(self):
         ship_level = self.get_ship_level(self.player.spaceship if self.player else None)
-        per_level = float(self.config.get("combat_enemy_scale_per_ship_level", 0.06))
+        per_level = float(self.config.get("combat_enemy_scale_per_ship_level"))
         scale = 1.0 + (max(0, ship_level - 1) * per_level)
 
         # Small pressure from active win streak to keep combat engaging.
@@ -56,7 +56,7 @@ class CombatMixin:
             return False, ""
 
         progress = self.get_planet_conquest_progress(p_name)
-        threshold_pct = float(self.config.get("planet_auto_combat_threshold_pct", 65))
+        threshold_pct = float(self.config.get("planet_auto_combat_threshold_pct"))
         threshold = max(0.0, min(1.0, threshold_pct / 100.0))
         if progress <= threshold:
             return False, ""
@@ -301,9 +301,9 @@ class CombatMixin:
             enemy_scale = float(session.get("enemy_scale", 1.0))
             streak_before = int(self._get_combat_win_streak())
             per_win_bonus = float(
-                self.config.get("combat_win_streak_bonus_per_win", 0.04)
+                self.config.get("combat_win_streak_bonus_per_win")
             )
-            bonus_cap = float(self.config.get("combat_win_streak_bonus_cap", 0.25))
+            bonus_cap = float(self.config.get("combat_win_streak_bonus_cap"))
             streak_bonus_factor = min(bonus_cap, streak_before * per_win_bonus)
             challenge_bonus_factor = max(0.0, (enemy_scale - 1.0) * 0.75)
             payout_bonus_factor = streak_bonus_factor + challenge_bonus_factor
@@ -332,7 +332,7 @@ class CombatMixin:
                     credits_delta += bounty_bonus
                     looted_credits += bounty_bonus
                     self._adjust_authority_standing(
-                        int(self.config.get("reputation_hostile_npc_bonus", 4))
+                        int(self.config.get("reputation_hostile_npc_bonus"))
                     )
                     self._apply_crew_activity("victory", specialty="weapons")
 
@@ -724,7 +724,7 @@ class CombatMixin:
         import time
 
         # Config gates
-        if not self.config.get("enable_special_weapons", True):
+        if not self.config.get("enable_special_weapons"):
             return False, "Special weapons are disabled on this server.", {}
 
         if not session or session.get("status") != "ACTIVE":
@@ -738,7 +738,7 @@ class CombatMixin:
             return False, "Your ship has no special weapon installed.", {}
 
         # Cooldown check
-        cooldown_hours = float(self.config.get("combat_special_weapon_cooldown_hours", 36.0))
+        cooldown_hours = float(self.config.get("combat_special_weapon_cooldown_hours"))
         last_used = float(getattr(self.player, "last_special_weapon_time", 0.0))
         now = time.time()
         elapsed_hours = (now - last_used) / 3600.0
@@ -756,9 +756,9 @@ class CombatMixin:
             return False, "No current planet for combat target.", {}
 
         # Config values
-        dmg_mult = float(self.config.get("combat_special_weapon_damage_multiplier", 2.0))
-        pop_min = float(self.config.get("combat_special_weapon_pop_reduction_min", 0.10))
-        pop_max = float(self.config.get("combat_special_weapon_pop_reduction_max", 0.45))
+        dmg_mult = float(self.config.get("combat_special_weapon_damage_multiplier"))
+        pop_min = float(self.config.get("combat_special_weapon_pop_reduction_min"))
+        pop_max = float(self.config.get("combat_special_weapon_pop_reduction_max"))
         pop_pct = random.uniform(pop_min, pop_max)
 
         # Snapshot before

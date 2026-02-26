@@ -598,7 +598,7 @@ class GalacticNewsView(arcade.View):
         self.next_view = next_view
         self.font_ui = get_font("ui")
         self.lookback_days = max(
-            1, int(self.network.config.get("galactic_news_window_days", 5))
+            1, int(self.network.config.get("galactic_news_window_days"))
         )
         self.entries = self.network.get_unseen_galactic_news(
             lookback_days=self.lookback_days

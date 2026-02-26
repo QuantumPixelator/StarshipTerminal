@@ -88,9 +88,9 @@ class FactionMixin:
     def _get_contract_chain_bonus_factor(self):
             streak = self._get_contract_chain_streak()
             per_completion = float(
-                self.config.get("contract_chain_bonus_per_completion", 0.05)
+                self.config.get("contract_chain_bonus_per_completion")
             )
-            cap = float(self.config.get("contract_chain_bonus_cap", 0.30))
+            cap = float(self.config.get("contract_chain_bonus_cap"))
             return max(0.0, min(cap, streak * per_completion))
 
     def _update_law_heat_decay(self):

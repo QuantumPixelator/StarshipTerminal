@@ -14,7 +14,7 @@ def _get_arrival_pause_seconds(network, default_value=0.0, refresh_config=False)
             pass
 
     try:
-        value = float(network.config.get("planet_arrival_pause_seconds", default_value))
+        value = float(network.config.get("planet_arrival_pause_seconds"))
     except Exception:
         value = float(default_value)
 
@@ -27,8 +27,8 @@ def _get_fuel_usage_multiplier(network):
         value = float(network.config.get("fuel_usage_multiplier", 1.15))
     except Exception:
         value = 1.15
-    # Global balance adjustment: +20% fuel usage across the board.
-    return max(0.0, value * 1.20)
+    # Global balance adjustment: -10% fuel usage across the board.
+    return max(0.0, value * 0.90)
 
 
 def _calculate_travel_fuel_cost(network, distance):

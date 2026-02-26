@@ -86,13 +86,13 @@ class TravelEventView(arcade.View):
 
     def on_show(self):
         arcade.set_background_color(COLOR_BG)
-        if not bool(self.network.config.get("audio_enabled", True)):
+        if not bool(self.network.config.get("audio_enabled")):
             return
         if self.event_sound_played or not self.event_sound:
             return
         try:
             volume = max(
-                0.0, min(1.0, float(self.network.config.get("audio_ui_volume", 0.70)))
+                0.0, min(1.0, float(self.network.config.get("audio_ui_volume")))
             )
             arcade.play_sound(self.event_sound, volume=volume)
             self.event_sound_played = True

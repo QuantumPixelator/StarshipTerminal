@@ -998,7 +998,7 @@ class GameServer:
                             # Point save_dir at the account's character subdir
                             self._set_gm_char_dir(gm, account_safe)
                             allow_multiple_games = bool(
-                                gm.config.get("allow_multiple_games", False)
+                                gm.config.get("allow_multiple_games")
                             )
                             characters = self._get_account_characters(player_name)
 

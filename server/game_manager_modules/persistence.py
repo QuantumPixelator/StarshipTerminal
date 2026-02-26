@@ -221,11 +221,11 @@ class PersistenceMixin:
         if winner_state.get("current_winner"):
             return winner_state.get("current_winner")
 
-        min_planet_pct = float(self.config.get("victory_planet_ownership_pct", 60))
-        authority_min = int(self.config.get("victory_authority_min", -100))
-        authority_max = int(self.config.get("victory_authority_max", 100))
-        frontier_min = int(self.config.get("victory_frontier_min", -100))
-        frontier_max = int(self.config.get("victory_frontier_max", 100))
+        min_planet_pct = float(self.config.get("victory_planet_ownership_pct"))
+        authority_min = int(self.config.get("victory_authority_min"))
+        authority_max = int(self.config.get("victory_authority_max"))
+        frontier_min = int(self.config.get("victory_frontier_min"))
+        frontier_max = int(self.config.get("victory_frontier_max"))
 
         candidates = []
         for row in commanders:
@@ -273,7 +273,7 @@ class PersistenceMixin:
             0,
         )
 
-        reset_days = int(self.config.get("victory_reset_days", 7))
+        reset_days = int(self.config.get("victory_reset_days"))
         reset_ts = self._next_reset_timestamp(reset_days)
 
         winner_record = {
@@ -604,7 +604,7 @@ class PersistenceMixin:
         days = int(
             lookback_days
             if lookback_days is not None
-            else self.config.get("galactic_news_window_days", 5)
+            else self.config.get("galactic_news_window_days")
         )
         days = max(1, min(30, days))
 
@@ -642,7 +642,7 @@ class PersistenceMixin:
     def new_game(self, player_name):
         self._process_scheduled_game_reset_if_due()
         # Create a new player with configured starting credits
-        starting_credits = self.config.get("starting_credits", 200)
+        starting_credits = self.config.get("starting_credits")
         first_spaceship = self.spaceships[0].clone()
         self.player = Player(
             name=player_name, spaceship=first_spaceship, credits=starting_credits
@@ -937,7 +937,7 @@ class PersistenceMixin:
             if legacy_bribed and not self.bribe_registry:
                 now = time.time()
                 base_h = max(
-                    1.0, float(self.config.get("bribe_base_duration_hours", 4))
+                    1.0, float(self.config.get("bribe_base_duration_hours"))
                 )
                 for p_name in legacy_bribed:
                     self.bribe_registry[str(p_name)] = {
