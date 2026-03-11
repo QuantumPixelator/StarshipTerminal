@@ -140,13 +140,4 @@ GTAGS
 **/.pytest_cache/
 venv/
 .venv/
-server/saves/dave/ACCOUNT.json
-server/saves/game_state.db
-server/saves/game_state.db-shm
-server/saves/game_state.db-wal
-client/servers.json
-client/assets/asset_manifest.json
-client/assets/texts/planets.txt
-client/assets/texts/planets.txt.bak_before_revert
-tools/
-reveal.py
+
