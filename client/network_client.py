@@ -51,6 +51,10 @@ class NetworkClient:
         self._snapshot_fresh = False
         self.state_version = 0
 
+        # After a successful refuel, protect against state snapshots reverting fuel.
+        self._refuel_floor: float = 0.0          # minimum fuel allowed during protection
+        self._refuel_floor_until: float = 0.0   # epoch time when protection expires
+
         # Planet events cache — refreshed once on connect / world refresh,
         # avoiding per-frame/per-planet network calls in the travel view.
         self.planet_events: dict = {}
@@ -585,6 +589,11 @@ class NetworkClient:
         player_payload = snapshot.get("player")
         if isinstance(player_payload, dict) and player_payload:
             self.player = self._build_player(player_payload)
+            # If a refuel just happened, don't let any snapshot roll back the fuel.
+            import time as _t
+            if _t.time() < self._refuel_floor_until and self.player is not None:
+                if self.player.spaceship.fuel < self._refuel_floor:
+                    self.player.spaceship.fuel = self._refuel_floor
 
         planet_payload = snapshot.get("current_planet")
         if isinstance(planet_payload, dict) and planet_payload:
@@ -951,7 +960,16 @@ class NetworkClient:
             result.get("message") or result.get("error") or "Fuel purchase failed."
         )
         if result.get("success"):
-            await self._refresh_player_data()
+            # Apply confirmed fuel from server response to local state.
+            new_fuel = float(result["fuel"]) if "fuel" in result else None
+            if new_fuel is not None and self.player is not None:
+                self.player.spaceship.fuel = new_fuel
+            # Protect this fuel level from being rolled back by periodic state
+            # snapshots (check_auto_refuel, payout_interest, etc.) for 5 seconds.
+            import time as _t
+            if new_fuel is not None:
+                self._refuel_floor = new_fuel
+                self._refuel_floor_until = _t.time() + 5.0
             return True, message
         return False, message
 

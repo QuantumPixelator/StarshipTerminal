@@ -256,6 +256,33 @@ class ShipOpsMixin:
             )
             self.player.spaceship.last_refuel_time = time.time()
 
+            # Keep strategic fuel storage aligned with ship fuel so travel burn
+            # uses the correct post-refuel amount.
+            if getattr(self, "store", None) is not None:
+                try:
+                    player_id = self._active_player_id()
+                except Exception:
+                    player_id = None
+                if player_id is not None:
+                    ship_model = str(
+                        getattr(self.player.spaceship, "model", "Unknown") or "Unknown"
+                    )
+                    fuel_amount = int(round(float(self.player.spaceship.fuel)))
+                    fuel_cap = int(
+                        round(float(getattr(self.player.spaceship, "max_fuel", fuel_amount)))
+                    )
+                    self.store.upsert_ship_cargo(
+                        player_id,
+                        ship_model,
+                        "fuel",
+                        fuel_amount,
+                        max(0, fuel_cap),
+                    )
+                    self.store.upsert_player_resource(player_id, "fuel", fuel_amount)
+                    self.store.upsert_player_resource(
+                        player_id, "credits", int(self.player.credits)
+                    )
+
             if timer_state["enabled"]:
                 now = time.time()
                 used = int(getattr(self.player, "refuel_uses_in_window", 0) or 0)

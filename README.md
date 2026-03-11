@@ -1,6 +1,8 @@
 # Starship Terminal
 
-Fast, ruthless space trading and combat in a persistent multiplayer galaxy.## What It Is
+Fast, ruthless space trading, conquest, and combat in a persistent multiplayer galaxy.
+
+## What It Is
 
 Starship Terminal is a client/server game where you start small, run risky trade routes, upgrade your ship, survive tactical fights, and push for system control.
 
@@ -74,6 +76,7 @@ First run can take a little longer while local data initializes.
 - Architecture overview: `ARCHITECTURE.md`
 - Developer workflow: `DEVELOPMENT.md`
 - Manual release validation: `MANUAL_VALIDATION.md`
+- Complete system overview: `OVERVIEW.md`
 
 ## License
 

@@ -2,6 +2,7 @@ import random
 import os
 import math
 import logging
+import re
 from sqlite_store import read_default_catalog_text
 
 
@@ -819,7 +820,9 @@ def generate_planets():
             raise ValueError("Missing SQLite catalog text: planets.txt")
 
         # Split by double newline to handle blocks correctly
-        blocks = [b.strip() for b in content.split("\n\n") if b.strip()]
+        blocks = [
+            b.strip() for b in re.split(r"\r?\n\r?\n", content) if b.strip()
+        ]
 
         for block in blocks:
             lines = [line.strip() for line in block.split("\n") if line.strip()]

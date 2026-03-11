@@ -11,11 +11,13 @@ if SERVER_DIR not in sys.path:
 from sqlite_store import SQLiteStore
 from game_server_auth import GameServer
 from game_manager_modules.economy import EconomyMixin
+from game_manager_modules.ship_ops import ShipOpsMixin
 
 
 class _Ship:
     def __init__(self):
         self.model = "Scout"
+        self.cost = 15000
         self.fuel = 40.0
         self.max_fuel = 80.0
         self.current_cargo_pods = 20
@@ -46,6 +48,29 @@ class _FakeEconomyGM(EconomyMixin):
             "resource_interest_rate": 0.01,
             "economy_event_chance": 0.0,
             "market_update_interval_minutes": 20,
+        }
+
+    def _active_player_id(self):
+        return 1
+
+    def get_planet_by_id(self, planet_id):
+        return self.current_planet if int(planet_id or 0) == 1 else None
+
+
+class _FakeEconomyShipOpsGM(EconomyMixin, ShipOpsMixin):
+    def __init__(self, store):
+        self.store = store
+        self.player = _Player()
+        self.current_planet = _Planet()
+        self.planets = [self.current_planet]
+        self.config = {
+            "resource_interest_rate": 0.01,
+            "economy_event_chance": 0.0,
+            "market_update_interval_minutes": 20,
+            "refuel_timer_enabled": False,
+            "refuel_timer_max_refuels": 3,
+            "refuel_timer_window_hours": 4,
+            "refuel_timer_cost_multiplier_pct": 100,
         }
 
     def _active_player_id(self):
@@ -167,6 +192,27 @@ class EconomySystemTests(unittest.TestCase):
         ok_refuel, _ = gm.refuel_ship(ship_id="Scout", planet_id=1, amount=10)
         self.assertTrue(ok_refuel)
         self.assertGreaterEqual(int(gm.player.spaceship.fuel), 50)
+
+    def test_buy_fuel_syncs_store_before_consumption(self):
+        gm = _FakeEconomyShipOpsGM(self.store)
+        gm.player.spaceship.fuel = 10.0
+        gm.player.credits = 5000
+
+        # Reproduce stale storage: DB has empty fuel while ship has some fuel.
+        self.store.upsert_player_resource(1, "credits", 5000)
+        self.store.upsert_player_resource(1, "fuel", 0)
+        self.store.upsert_ship_cargo(1, "Scout", "fuel", 0, 80)
+
+        ok_buy, _ = gm.buy_fuel(20)
+        self.assertTrue(ok_buy)
+        self.assertEqual(int(gm.player.spaceship.fuel), 30)
+
+        ok_consume, _ = gm.consume_fuel("Scout", 5)
+        self.assertTrue(ok_consume)
+        self.assertEqual(int(gm.player.spaceship.fuel), 25)
+
+        cargo = self.store.get_ship_cargo(1, "Scout")
+        self.assertEqual(int(cargo["fuel"]["amount"]), 25)
 
 
 if __name__ == "__main__":

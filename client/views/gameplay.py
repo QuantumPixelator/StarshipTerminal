@@ -236,6 +236,9 @@ class PlanetView(arcade.View):
             "resource_interest": 0.0,
             "crew_pay": 0.0,
         }
+        self._refuel_quote_cache = {}
+        self._refuel_quote_ts = 0.0
+        self._refuel_quote_interval = 2.0
         self._neon_banner_queue = []
         self._neon_banner_active = None
         self.commander_status_rows = []
@@ -324,7 +327,7 @@ class PlanetView(arcade.View):
         self.menu_texts = []
 
         self.status_bar_txt = arcade.Text(
-            "", 310, 18, COLOR_PRIMARY, 12, anchor_y="center", font_name=self.font_ui
+            "", 310, 46, COLOR_PRIMARY, 12, anchor_y="center", font_name=self.font_ui
         )
         self.fuel_label = arcade.Text(
             "FUEL:",
@@ -1449,7 +1452,7 @@ class PlanetView(arcade.View):
                 "SHIPYARD: [W/S] SELECT SHIP | [ENTER] PURCHASE",
             ],
             "REFUEL": [
-                "REFUEL: [F] STANDARD REFUEL | [R] RESOURCE REFUEL",
+                "REFUEL: [F] STANDARD REFUEL",
             ],
             "BANK": [
                 "BANK: USE ON-SCREEN BUTTONS FOR DEPOSIT/WITHDRAW",
@@ -2588,6 +2591,15 @@ class PlanetView(arcade.View):
         if self.mode in ("MARKET", "RESOURCES", "REFUEL", "INFO"):
             self._refresh_resource_snapshot(force=False)
 
+        if self.mode == "REFUEL":
+            import time as _time
+            if (_time.time() - self._refuel_quote_ts) >= self._refuel_quote_interval:
+                try:
+                    self._refuel_quote_cache = self.network.get_refuel_quote() or {}
+                except Exception:
+                    self._refuel_quote_cache = {}
+                self._refuel_quote_ts = _time.time()
+
         if self.combat_flash_timer > 0:
             self.combat_flash_timer = max(0.0, self.combat_flash_timer - delta_time)
 
@@ -2675,6 +2687,25 @@ class PlanetView(arcade.View):
             arcade.draw_lbwh_rectangle_filled(
                 0, 0, SCREEN_WIDTH, SCREEN_HEIGHT, (0, 0, 0, 255)
             )
+            _planet_owner = getattr(self.network.current_planet, "owner", None)
+            if _planet_owner:
+                arcade.draw_lbwh_rectangle_filled(
+                    0, SCREEN_HEIGHT - 36, SCREEN_WIDTH, 36, (15, 15, 25, 255)
+                )
+                arcade.draw_line(
+                    0, SCREEN_HEIGHT - 36, SCREEN_WIDTH, SCREEN_HEIGHT - 36,
+                    COLOR_ACCENT, 2
+                )
+                arcade.Text(
+                    f"OWNER:  {_planet_owner.upper()}",
+                    SCREEN_WIDTH // 2,
+                    SCREEN_HEIGHT - 18,
+                    COLOR_ACCENT,
+                    15,
+                    anchor_x="center",
+                    anchor_y="center",
+                    font_name=self.font_ui_bold,
+                ).draw()
             arcade.Text(
                 f"ARRIVING AT {self.network.current_planet.name.upper()}...",
                 SCREEN_WIDTH // 2,
@@ -2814,9 +2845,9 @@ class PlanetView(arcade.View):
             txt.draw()
 
         arcade.draw_lbwh_rectangle_filled(
-            sidebar_w, 0, SCREEN_WIDTH - sidebar_w, 60, (5, 5, 10, 240)
+            sidebar_w, 0, SCREEN_WIDTH - sidebar_w, 72, (5, 5, 10, 240)
         )
-        arcade.draw_line(sidebar_w, 60, SCREEN_WIDTH, 60, COLOR_SECONDARY, 1)
+        arcade.draw_line(sidebar_w, 72, SCREEN_WIDTH, 72, COLOR_SECONDARY, 1)
 
         ship = self.network.player.spaceship
         bank = self.network.player.bank_balance
@@ -2835,14 +2866,14 @@ class PlanetView(arcade.View):
         dock_text = "DOCKED" if self.is_docked else "ORBIT"
         self.status_bar_txt.text = self._clamp_text(
             f"CMDR: {self.network.player.name} | {ship.model} (LVL {ship_level}) | CR: {self.network.player.credits:,} | BANK: {bank:,} | STATE: {dock_text} | MODE: {status_mode}",
-            176,
+            104,
         )
         self.status_bar_txt.draw()
         auth_color = COLOR_PRIMARY if authority_rep >= 0 else (255, 92, 120)
         front_color = COLOR_PRIMARY if frontier_rep >= 0 else (255, 92, 120)
         arcade.Text(
             f"AUTH {authority_rep:+d} {authority_label}",
-            910,
+            sidebar_w + 20,
             18,
             auth_color,
             12,
@@ -2851,7 +2882,7 @@ class PlanetView(arcade.View):
         ).draw()
         arcade.Text(
             f"FRONT {frontier_rep:+d} {frontier_label}",
-            1130,
+            sidebar_w + 290,
             18,
             front_color,
             12,
@@ -4094,7 +4125,7 @@ class PlanetView(arcade.View):
             self.header_txt.draw()
 
             ship = self.network.player.spaceship
-            quote = self.network.get_refuel_quote() or {}
+            quote = self._refuel_quote_cache
             timer_mode_enabled = bool(quote.get("refuel_timer_enabled", False))
             if ship.fuel >= ship.max_fuel:
                 self.refuel_status_txt.text = "FUEL CELLS AT MAXIMUM CAPACITY."
@@ -4148,15 +4179,13 @@ class PlanetView(arcade.View):
                         timer_lines.append(f"WINDOW RESETS IN: {hrs}h {mins:02d}m")
 
                     if is_locked:
-                        self.refuel_instr_txt.text = (
-                            "REFUEL WINDOW LOCKED - WAIT FOR RESET"
-                        )
+                        self.refuel_instr_txt.text = "PRESS [F] TO REFUEL"
                         self.refuel_instr_txt.color = COLOR_ACCENT
                     else:
-                        self.refuel_instr_txt.text = "PRESS [F] STANDARD REFUEL | [R] RESOURCE REFUEL"
+                        self.refuel_instr_txt.text = "PRESS [F] TO REFUEL"
                         self.refuel_instr_txt.color = (255, 255, 255)
                 else:
-                    self.refuel_instr_txt.text = "PRESS [F] STANDARD REFUEL | [R] RESOURCE REFUEL"
+                    self.refuel_instr_txt.text = "PRESS [F] TO REFUEL"
                     self.refuel_instr_txt.color = (255, 255, 255)
 
                 self.refuel_instr_txt.draw()
@@ -6430,6 +6459,7 @@ class PlanetView(arcade.View):
                 self.arrival_msg_timer = 2.8
                 return
             self.mode = "REFUEL"
+            self._refuel_quote_ts = 0.0  # force quote refresh on next update tick
         elif opt == "MARKET":
             if self._services_locked():
                 self.arrival_msg = "MARKET ACCESS REQUIRES DOCKED CLEARANCE."
@@ -7324,11 +7354,14 @@ class PlanetView(arcade.View):
         elif key == arcade.key.ENTER or key == arcade.key.RETURN:
             self._execute_menu_selection()
         elif key == arcade.key.F and self.mode == "REFUEL":
+            import math as _math
             ship = self.network.player.spaceship
             needed = ship.max_fuel - ship.fuel
-            success, msg = self.network.buy_fuel(needed)
+            amount = int(_math.ceil(needed)) if needed > 0 else 0
+            success, msg = self.network.buy_fuel(amount)
             if success:
                 self._play_sfx("ship", "engine_startup")
+                self._refuel_quote_ts = 0.0  # invalidate cache so it refreshes
             else:
                 self._play_sfx("ui", "error")
             msg_text = str(msg or "").upper()
@@ -7340,21 +7373,7 @@ class PlanetView(arcade.View):
             self.arrival_msg_timer = 2.5
             if success:
                 self.network.save_game()
-        elif key == arcade.key.R and self.mode == "REFUEL":
-            ship = self.network.player.spaceship
-            needed = max(1, int(max(0.0, float(ship.max_fuel) - float(ship.fuel))))
-            success, msg, data = self.network.refuel_ship_resource(needed)
-            msg_text = str(msg or "").upper()
-            if success:
-                self._play_sfx("ship", "engine_startup")
-                if isinstance(data, dict) and data:
-                    self.resource_snapshot = data
-                self.network.save_game()
-            else:
-                self._play_sfx("ui", "error")
-            self.arrival_msg = msg_text
-            self.arrival_msg_timer = 2.8
-        elif key == arcade.key.ESCAPE:
+        elif key == arcade.key.ESCAPE and self.mode == "REFUEL":
             self.mode = "INFO"
 
     def _auto_install_systems_cargo(self):

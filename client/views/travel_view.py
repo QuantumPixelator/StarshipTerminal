@@ -27,6 +27,15 @@ class TravelView(arcade.View):
     def __init__(self, game_manager):
         super().__init__()
         self.network = game_manager
+
+        # Pull latest planet catalog from server so newly activated/renamed
+        # planets show up immediately in travel destinations.
+        try:
+            if hasattr(self.network, "_refresh_world_data"):
+                self.network._refresh_world_data()
+        except Exception:
+            pass
+
         self.selected_planet = 0
         self.font_ui = get_font("ui")
         self.font_ui_bold = get_font("ui_bold")
@@ -70,6 +79,12 @@ class TravelView(arcade.View):
                 font_name=self.font_ui,
             )
             self.planet_labels.append(txt)
+
+        if self.network.planets:
+            self.selected_planet = max(
+                0,
+                min(self.selected_planet, len(self.network.planets) - 1),
+            )
 
         star_rng = random.Random("travel-map-stars")
         self.map_stars = []

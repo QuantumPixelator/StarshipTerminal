@@ -513,15 +513,20 @@ class ConfigApp(ctk.CTk):
         except Exception:
             pass
 
+    def _split_catalog_blocks(self, text):
+        return [
+            b.strip()
+            for b in re.split(r"\r?\n\r?\n", str(text or "").strip())
+            if b.strip()
+        ]
+
     def load_planets(self):
         self.planets = []
         self._normalize_planets_file_if_needed()
         text = self._read_catalog_text(self.planets_path)
         if not text.strip():
             return
-        blocks = [
-            b.strip() for b in re.split(r"\r?\n\r?\n", text.strip()) if b.strip()
-        ]
+        blocks = self._split_catalog_blocks(text)
         for block in blocks:
             lines = [l.strip() for l in block.split("\n") if l.strip()]
             if len(lines) < 9:
@@ -574,7 +579,7 @@ class ConfigApp(ctk.CTk):
     def load_ships(self):
         self.ships = []
         text = self._read_catalog_text(self.ships_path)
-        blocks = text.strip().split("\n\n") if text.strip() else []
+        blocks = self._split_catalog_blocks(text)
         for block in blocks:
             lines = [l.strip() for l in block.split("\n") if l.strip()]
             if len(lines) < 9:
@@ -626,19 +631,25 @@ class ConfigApp(ctk.CTk):
             return None
 
         payload = self._build_planet_payload()
-        ok, err, _synced = self._persist_planet_payload(payload, require_active=True)
+        ok, err, _synced = self._persist_planet_payload(
+            payload,
+            require_active=True,
+            source_name=getattr(self, "selected_planet_name", payload.get("Name")),
+        )
         if not ok:
             return f"planet editor: {err}"
         return None
 
-    def _persist_planet_payload(self, payload, require_active=True):
+    def _persist_planet_payload(self, payload, require_active=True, source_name=None):
         """Persist a planet payload to planets.txt; returns (ok, message, synced_save_count)."""
         ok, err = self._validate_planet_payload(payload)
         if not ok:
             return False, err, 0
 
+        source_name = str(source_name or payload.get("Name") or "").strip()
+
         raw_text = self._read_catalog_text(self.planets_path)
-        raw_blocks = [b.strip() for b in raw_text.split("\n\n") if b.strip()]
+        raw_blocks = self._split_catalog_blocks(raw_text)
 
         blocks = []
         updated = False
@@ -650,7 +661,7 @@ class ConfigApp(ctk.CTk):
                 k, v = ln.split(":", 1)
                 vals[k.strip()] = v.strip()
 
-            if vals.get("Name") == payload["Name"]:
+            if vals.get("Name") == source_name:
                 vals.update(payload)
                 updated = True
 
@@ -1624,11 +1635,7 @@ class ConfigApp(ctk.CTk):
         id_by_name = {}
         name_by_id = {}
         try:
-            blocks = [
-                b.strip()
-                for b in self._read_catalog_text(self.planets_path).split("\n\n")
-                if b.strip()
-            ]
+            blocks = self._split_catalog_blocks(self._read_catalog_text(self.planets_path))
             next_id = 1
             for block in blocks:
                 p_name = ""
@@ -3254,8 +3261,6 @@ class ConfigApp(ctk.CTk):
         ]
         for block in blocks:
             lines = [ln.strip() for ln in block.split("\n") if ln.strip()]
-            if len(lines) < 9:
-                continue
             vals = {}
             for ln in lines:
                 if ":" not in ln:
@@ -3323,16 +3328,18 @@ class ConfigApp(ctk.CTk):
                 if status == "ACTIVE"
                 else ("#f1c40f" if status == "READY" else "#7f8c8d")
             )
-            text = f"[{status}] {name}"
-            ctk.CTkButton(
+            is_selected = str(getattr(self, "selected_planet_name", "") or "") == str(name)
+            text = f"[{status}] {'> ' if is_selected else ''}{name}"
+            btn = ctk.CTkButton(
                 self.catalog_scroll,
                 text=text,
-                fg_color=color,
-                hover_color=color,
-                text_color="#101010",
+                fg_color=("#1f6aa5" if is_selected else color),
+                hover_color=("#144870" if is_selected else color),
+                text_color=("#f8fbff" if is_selected else "#101010"),
                 anchor="w",
                 command=lambda n=name, e=entry: self.select_planet_from_catalog(n, e),
-            ).pack(fill="x", padx=4, pady=2)
+            )
+            btn.pack(fill="x", padx=4, pady=2)
 
         self.planet_catalog = catalog
         self.active_planets_data = active_planets
@@ -3353,6 +3360,16 @@ class ConfigApp(ctk.CTk):
 
         # Load data into form
         data = self.active_planets_data.get(name, {})
+        if not data:
+            # Catalog/image names can differ by case; resolve active data case-insensitively.
+            lname = str(name or "").strip().lower()
+            for k, v in dict(getattr(self, "active_planets_data", {}) or {}).items():
+                if str(k or "").strip().lower() == lname:
+                    data = dict(v or {})
+                    break
+
+        bg_path = os.path.abspath(os.path.join(self.bg_dir, f"{name}.png"))
+        thumb_path = os.path.abspath(os.path.join(self.thumb_dir, f"sm_{name}.png"))
         self._begin_dirty_suspension()
         try:
             self._set_entry(self.planet_editor["name"], name)
@@ -3380,8 +3397,27 @@ class ConfigApp(ctk.CTk):
                 self.planet_editor["items"],
                 data.get("Items", self._generate_default_items_string()),
             )
+
+            # Keep image-link fields in sync with the selected catalog entry.
+            self._set_entry(self.link_new_name, name)
+            self._set_entry(
+                self.link_bg_path,
+                bg_path if os.path.exists(bg_path) else "",
+            )
+            self._set_entry(
+                self.link_thumb_path,
+                thumb_path if os.path.exists(thumb_path) else "",
+            )
         finally:
             self._end_dirty_suspension()
+
+        try:
+            self.rebuild_map_preview()
+        except Exception:
+            pass
+
+        # Rebuild catalog buttons so current selection is visually highlighted.
+        self.refresh_planet_catalog()
 
     def _set_entry(self, entry_widget, value):
         """Set entry widget value."""
@@ -3538,7 +3574,7 @@ class ConfigApp(ctk.CTk):
         existing_blocks = []
         active_names = set()
         raw_planets = self._read_catalog_text(self.planets_path)
-        existing_blocks = [b.strip() for b in raw_planets.split("\n\n") if b.strip()]
+        existing_blocks = self._split_catalog_blocks(raw_planets)
         for block in existing_blocks:
             for line in [ln.strip() for ln in block.split("\n") if ln.strip()]:
                 if line.startswith("Name:"):
@@ -3586,7 +3622,11 @@ class ConfigApp(ctk.CTk):
     def save_planet_changes(self):
         """Save changes to an existing planet."""
         payload = self._build_planet_payload()
-        ok, err, synced = self._persist_planet_payload(payload, require_active=True)
+        ok, err, synced = self._persist_planet_payload(
+            payload,
+            require_active=True,
+            source_name=getattr(self, "selected_planet_name", payload.get("Name")),
+        )
         if not ok:
             if err.startswith("This planet is not active"):
                 messagebox.showerror("Planet Not Active", err)
@@ -3619,11 +3659,7 @@ class ConfigApp(ctk.CTk):
             return
 
         # Read and filter
-        raw_blocks = [
-            b.strip()
-            for b in self._read_catalog_text(self.planets_path).split("\n\n")
-            if b.strip()
-        ]
+        raw_blocks = self._split_catalog_blocks(self._read_catalog_text(self.planets_path))
 
         blocks = []
         for block in raw_blocks:
@@ -3808,11 +3844,7 @@ class ConfigApp(ctk.CTk):
         # Build name -> id mapping from planets.txt order (or explicit Planet ID if present).
         planet_id_by_name = {}
         try:
-            blocks = [
-                b.strip()
-                for b in self._read_catalog_text(self.planets_path).split("\n\n")
-                if b.strip()
-            ]
+            blocks = self._split_catalog_blocks(self._read_catalog_text(self.planets_path))
             if blocks:
                 next_id = 1
                 for block in blocks:
