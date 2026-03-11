@@ -796,6 +796,19 @@ class CombatMixin:
 
         session["log"].extend(round_lines)
 
+        # Attach live stat snapshots so the client can update visuals without
+        # needing extra round-trip calls to _get_target_stats.
+        session["live_player"] = {
+            "shields":   int(p_shields),
+            "defenders": int(p_defenders),
+            "integrity": int(p_integrity),
+        }
+        session["live_target"] = {
+            "shields":   int(t_shields),
+            "defenders": int(t_defenders),
+            "integrity": int(t_integrity),
+        }
+
         target_defeated = t_shields <= 0 and t_defenders <= 0
         player_defeated = p_shields <= 0 and p_defenders <= 0
 

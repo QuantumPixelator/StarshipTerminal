@@ -82,20 +82,12 @@ def _build_asset_fingerprint(files):
 
 
 def _refresh_asset_sync_cache():
-<<<<<<< HEAD
     if _DB_STORE is not None:
         try:
             _DB_STORE.export_catalog_texts_to_files(SERVER_ROOT / "assets" / "texts")
         except Exception:
             pass
 
-    now = time.perf_counter()
-    has_manifest = bool(_ASSET_SYNC_CACHE.get("manifest"))
-    if has_manifest and (
-        now - float(_ASSET_SYNC_CACHE.get("last_refresh") or 0.0)
-    ) < ASSET_SYNC_REFRESH_INTERVAL_S:
-        return
-=======
     with _ASSET_SYNC_LOCK:
         now = time.perf_counter()
         has_manifest = bool(_ASSET_SYNC_CACHE.get("manifest"))
@@ -103,7 +95,6 @@ def _refresh_asset_sync_cache():
             now - float(_ASSET_SYNC_CACHE.get("last_refresh") or 0.0)
         ) < ASSET_SYNC_REFRESH_INTERVAL_S:
             return
->>>>>>> 1511b0b46872728130faad7a264914cb11dc1818
 
         files = list(_iter_sync_asset_files())
         fingerprint = _build_asset_fingerprint(files)

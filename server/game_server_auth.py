@@ -172,52 +172,7 @@ class GameServer:
         Return the canonical SQLite auth reference for an account.
         """
         safe_name = self._safe_name(account_name)
-<<<<<<< HEAD
         return f"dbauth://{safe_name}"
-=======
-        account_dir = Path(self.save_dir) / safe_name
-        new_auth_path = account_dir / "ACCOUNT.json"
-
-        # Legacy path: saves/<account>.json
-        legacy_auth_path = Path(self.save_dir) / f"{safe_name}.json"
-
-        # If already migrated/correct
-        if new_auth_path.exists():
-            return str(new_auth_path)
-
-        # Create directory if missing
-        if not account_dir.exists():
-            account_dir.mkdir(parents=True, exist_ok=True)
-            logging.info(f"Created account directory: {account_dir}")
-
-        # Migration: Move legacy auth file if it exists
-        if legacy_auth_path.exists():
-            try:
-                # Load legacy data to verify it is actually an auth file (has password_hash)
-                data = self._load_save_json(str(legacy_auth_path))
-                if (
-                    isinstance(data, dict)
-                    and str(data.get("password_hash") or "").strip()
-                ):
-                    # It is an auth file, move it
-                    import shutil
-
-                    shutil.move(str(legacy_auth_path), str(new_auth_path))
-                    logging.info(
-                        f"Migrated account file: {legacy_auth_path} -> {new_auth_path}"
-                    )
-                else:
-                    # It might be a legacy root save file (character save), NOT an auth file.
-                    # We leave it alone; _get_account_characters logic will handle claiming it later.
-                    pass
-            except Exception:
-                logging.exception(
-                    "Failed to migrate account file path='%s'",
-                    str(legacy_auth_path),
-                )
-
-        return str(new_auth_path)
->>>>>>> 1511b0b46872728130faad7a264914cb11dc1818
 
     def _safe_name(self, value):
         return str(value or "").strip().lower().replace(" ", "_")
@@ -1728,7 +1683,6 @@ def _load_server_bind_settings():
     db_path = Path(__file__).parent / "saves" / "game_state.db"
 
     try:
-<<<<<<< HEAD
         save_dir = db_path.parent
         save_dir.mkdir(parents=True, exist_ok=True)
         store = SQLiteStore(str(db_path))
@@ -1738,34 +1692,6 @@ def _load_server_bind_settings():
         if 1 <= parsed <= 65535:
             port = parsed
         store.close()
-=======
-        if db_path.exists():
-            store = SQLiteStore(str(db_path))
-            candidate = store.get_kv("settings", "server_port", default=port)
-            parsed = int(str(candidate).strip())
-            if 1 <= parsed <= 65535:
-                port = parsed
-            store.close()
-            return host, port
-    except Exception:
-        logging.warning("Failed loading server port from sqlite settings", exc_info=True)
-
-    try:
-        if config_path.exists():
-            with config_path.open("r", encoding="utf-8") as handle:
-                payload = json.load(handle)
-            settings = payload.get("settings", {}) if isinstance(payload, dict) else {}
-            candidate = settings.get("server_port", port)
-            parsed = int(str(candidate).strip())
-            if 1 <= parsed <= 65535:
-                port = parsed
-            else:
-                logging.warning(
-                    "Invalid server_port '%s' in game_config.json; using %s",
-                    candidate,
-                    port,
-                )
->>>>>>> 1511b0b46872728130faad7a264914cb11dc1818
     except Exception as ex:
         logging.warning("Failed to load server_port from SQLite settings: %s", ex)
 

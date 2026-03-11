@@ -1081,10 +1081,10 @@ class AuthenticationView(arcade.View):
             player_name = getattr(getattr(network, "player", None), "name", None)
             if player_name:
                 from views.menu import GalacticNewsView
-                from views.galaxy_map_view import GalaxyMapView
+                from views.gameplay import PlanetView
 
                 show_wisdom = bool(getattr(self, "play_intro_on_launch", False))
-                next_view = GalaxyMapView(network)
+                next_view = PlanetView(network)
                 if network.has_unseen_galactic_news():
                     launch_view = GalacticNewsView(network, next_view)
                 else:

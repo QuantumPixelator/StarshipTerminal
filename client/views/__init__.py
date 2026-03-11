@@ -22,6 +22,7 @@ from .galaxy_map_view import GalaxyMapView
 from .planet_detail_view import PlanetDetailView
 from .market_view import MarketView
 from .combat_view import CombatView
+from .combat_window import CombatWindow
 from .status_view import StatusView
 from .login_view import AuthenticationView as LoginView
 

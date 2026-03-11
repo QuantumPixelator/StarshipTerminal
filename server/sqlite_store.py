@@ -44,8 +44,7 @@ def _safe_json_loads(raw_value, default_value):
 class SQLiteStore:
     """Single SQLite authority for runtime/server data."""
 
-<<<<<<< HEAD
-    SCHEMA_VERSION = 1
+    SCHEMA_VERSION = 2
     DEFAULT_SETTINGS = {
         "server_port": 8765,
         "planet_price_penalty_multiplier": 1.0,
@@ -59,9 +58,6 @@ class SQLiteStore:
         "engineer_phrases.txt",
         "intro.txt",
     )
-=======
-    SCHEMA_VERSION = 2
->>>>>>> 1511b0b46872728130faad7a264914cb11dc1818
 
     def __init__(self, db_path):
         self.db_path = str(db_path)

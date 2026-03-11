@@ -160,13 +160,8 @@ class PlanetView(arcade.View):
         self.combat_target_texture = None
         self._combat_ship_texture_cache = {}
         if self.combat_effects_enabled:
-<<<<<<< HEAD
-            self.combat_player_texture = self._default_combat_player_texture
-            self.combat_target_texture = self._default_combat_target_texture
-=======
             self.combat_player_texture = self._load_named_ship_texture("fighter_player")
             self.combat_target_texture = self._load_named_ship_texture("fighter_npc")
->>>>>>> 1511b0b46872728130faad7a264914cb11dc1818
 
         self.market_message = ""
         self.market_message_timer = 0.0
@@ -2438,6 +2433,14 @@ class PlanetView(arcade.View):
             ).draw()
 
     def on_update(self, delta_time):
+        self._perf_accum += float(delta_time)
+        self._perf_frames += 1
+        if self._perf_accum >= 0.4:
+            self._fps_estimate = self._perf_frames / self._perf_accum
+            self._frame_ms_estimate = 1000.0 / max(1e-6, self._fps_estimate)
+            self._perf_accum = 0.0
+            self._perf_frames = 0
+
         if self.arrival_pause_timer > 0:
             self.arrival_pause_timer -= delta_time
             if self.arrival_pause_timer <= 0:
@@ -2681,14 +2684,6 @@ class PlanetView(arcade.View):
                 anchor_x="center",
                 font_name=self.font_ui_bold,
             ).draw()
-
-            # Show the arrival message
-
-        # Draw global effects on top of UI
-        try:
-            draw_effects()
-        except Exception:
-            pass
             if self.arrival_msg:
                 arcade.Text(
                     self.arrival_msg,
@@ -2702,7 +2697,6 @@ class PlanetView(arcade.View):
                     align="center",
                     font_name=self.font_ui,
                 ).draw()
-
             arcade.Text(
                 f"ESTABLISHING LINK... {self.arrival_pause_timer:.1f}",
                 SCREEN_WIDTH // 2,
@@ -2712,7 +2706,17 @@ class PlanetView(arcade.View):
                 anchor_x="center",
                 font_name=self.font_ui,
             ).draw()
+            try:
+                draw_effects()
+            except Exception:
+                pass
             return
+
+        # Draw global effects on top of UI
+        try:
+            draw_effects()
+        except Exception:
+            pass
 
         if self.combat_session:
             self._draw_combat_window()
@@ -2745,62 +2749,53 @@ class PlanetView(arcade.View):
         # Sidebar Statistics (New location for Hull, Shields, Cargo)
         self._draw_sidebar_stats()
 
-        self._perf_accum += float(delta_time)
-        self._perf_frames += 1
-        if self._perf_accum >= 0.4:
-            self._fps_estimate = self._perf_frames / self._perf_accum
-            self._frame_ms_estimate = 1000.0 / max(1e-6, self._fps_estimate)
-            self._perf_accum = 0.0
-            self._perf_frames = 0
-
-        self._refresh_menu_options()
-
-        if self.show_perf_hud:
-            self._draw_perf_hud()
+        self._draw_perf_hud()
 
     def _draw_perf_hud(self):
-        draw_calls_est = 8 + len(self.menu_options)
-        if self.combat_session:
-            draw_calls_est += 20 + len(self.combat_impact_effects)
-        lines = [
-            "PERF HUD [F3 TOGGLE]",
-            f"FPS: {self._fps_estimate:5.1f}",
-            f"FRAME: {self._frame_ms_estimate:5.2f} ms",
-            f"MODE: {self.mode}",
-            f"MENU OPTIONS: {len(self.menu_options)}",
-            f"COMBAT FX: {len(self.combat_impact_effects)}",
-            f"DRAW LOAD EST: {draw_calls_est}",
-        ]
-        x_left = SCREEN_WIDTH - 300
-        y_top = SCREEN_HEIGHT - 18
-        panel_h = 20 + len(lines) * 18
-        arcade.draw_lrtb_rectangle_filled(
-            x_left,
-            SCREEN_WIDTH - 12,
-            y_top,
-            y_top - panel_h,
-            (8, 14, 22, 200),
-        )
-        arcade.draw_lrtb_rectangle_outline(
-            x_left,
-            SCREEN_WIDTH - 12,
-            y_top,
-            y_top - panel_h,
-            (95, 155, 215, 220),
-            1,
-        )
-        y = y_top - 22
-        for i, line in enumerate(lines):
-            color = COLOR_PRIMARY if i == 0 else COLOR_TEXT_DIM
-            arcade.draw_text(
-                line,
-                x_left + 10,
-                y,
-                color,
-                11,
-                font_name=self.font_ui,
+        sidebar_w = 300
+        if self.show_perf_hud:
+            draw_calls_est = 8 + len(self.menu_options)
+            if self.combat_session:
+                draw_calls_est += 20 + len(self.combat_impact_effects)
+            lines = [
+                "PERF HUD [F3 TOGGLE]",
+                f"FPS: {self._fps_estimate:5.1f}",
+                f"FRAME: {self._frame_ms_estimate:5.2f} ms",
+                f"MODE: {self.mode}",
+                f"MENU OPTIONS: {len(self.menu_options)}",
+                f"COMBAT FX: {len(self.combat_impact_effects)}",
+                f"DRAW LOAD EST: {draw_calls_est}",
+            ]
+            x_left = SCREEN_WIDTH - 300
+            y_top = SCREEN_HEIGHT - 18
+            panel_h = 20 + len(lines) * 18
+            arcade.draw_lrtb_rectangle_filled(
+                x_left,
+                SCREEN_WIDTH - 12,
+                y_top,
+                y_top - panel_h,
+                (8, 14, 22, 200),
             )
-            y -= 18
+            arcade.draw_lrtb_rectangle_outline(
+                x_left,
+                SCREEN_WIDTH - 12,
+                y_top,
+                y_top - panel_h,
+                (95, 155, 215, 220),
+                1,
+            )
+            y = y_top - 22
+            for i, line in enumerate(lines):
+                color = COLOR_PRIMARY if i == 0 else COLOR_TEXT_DIM
+                arcade.draw_text(
+                    line,
+                    x_left + 10,
+                    y,
+                    color,
+                    11,
+                    font_name=self.font_ui,
+                )
+                y -= 18
 
         for i, opt in enumerate(self.menu_options):
             is_sel = i == self.selected_menu
@@ -8766,6 +8761,11 @@ class PlanetView(arcade.View):
                 return
 
     def _start_combat(self, target_data):
+        """Launch the dedicated CombatWindow view for a new combat engagement.
+
+        All rendering, animation and audio happen inside CombatWindow.
+        When combat finishes the on_combat_end callback restores this view.
+        """
         if self.is_docked:
             self.orbit_message = "COMBAT LOCKOUT: UNDOCK FIRST."
             self.orbit_message_color = COLOR_ACCENT
@@ -8779,34 +8779,69 @@ class PlanetView(arcade.View):
             self.orbit_message_color = COLOR_ACCENT
             return
 
-        self.combat_session = session
-        self.post_combat_actions = []
-        self.combat_impact_effects = []
-        self._play_sfx("combat", "combat_start")
-        fighters = int(self.network.player.spaceship.current_defenders)
-        self.combat_commitment = 1 if fighters > 0 else 0
-
-        player_ship_model = getattr(self.network.player.spaceship, "model", "")
-        target_ship_model = self._extract_target_ship_model(target_data)
-        self.combat_player_texture = self._get_combat_ship_texture(
-            player_ship_model,
-            self._default_combat_player_texture,
-        )
-        self.combat_target_texture = self._get_combat_ship_texture(
-            target_ship_model,
-            self._default_combat_target_texture,
-        )
-
+        # Crew opener line
         if "weapons" in self.network.player.crew:
             opener = self.network.player.crew["weapons"].get_remark("combat_start")
-            self.combat_session["log"].append(
+            session["log"].append(
                 f"{self.network.player.crew['weapons'].name}: {opener}"
             )
         elif "engineer" in self.network.player.crew:
             opener = self.network.player.crew["engineer"].get_remark("combat_start")
-            self.combat_session["log"].append(
+            session["log"].append(
                 f"{self.network.player.crew['engineer'].name}: {opener}"
             )
+
+        # Resolve ship textures for both sides
+        player_model = getattr(self.network.player.spaceship, "model", "")
+        target_model = self._extract_target_ship_model(target_data)
+        player_tex = self._get_combat_ship_texture(
+            player_model, self._default_combat_player_texture
+        )
+        enemy_tex = self._get_combat_ship_texture(
+            target_model, self._default_combat_target_texture
+        )
+
+        # Compute special-weapon status locally from client config (instant, no
+        # extra server call required).  Only PLANET engagements can use the weapon.
+        import time as _time
+        spec_enabled = bool(self.network.config.get("enable_special_weapons"))
+        spec_target_ok = (str(target_data.get("type", "")).upper() == "PLANET")
+        has_weapon = bool(getattr(self.network.player.spaceship, "special_weapon", None))
+        cooldown_h = float(self.network.config.get("combat_special_weapon_cooldown_hours", 24))
+        last_used  = float(getattr(self.network.player, "last_special_weapon_time", 0.0))
+        elapsed_h  = (_time.time() - last_used) / 3600.0
+        on_cd      = elapsed_h < cooldown_h
+        spec_status = {
+            "enabled":         spec_enabled and spec_target_ok and has_weapon,
+            "weapon_name":     getattr(self.network.player.spaceship, "special_weapon", "") or "",
+            "on_cooldown":     on_cd,
+            "remaining_hours": max(0.0, cooldown_h - elapsed_h),
+            "cooldown_hours":  cooldown_h,
+        }
+
+        # Capture a reference to this view so the callback can restore it
+        planet_view = self
+
+        def on_combat_end(final_session: dict) -> None:
+            """Restore PlanetView and clean up after combat."""
+            planet_view.combat_session = final_session
+            status_before = final_session.get("status", "")
+            planet_view._close_combat_window()
+            # _close_combat_window handles LOST_AND_FLED by switching to TravelView
+            if status_before != "LOST_AND_FLED":
+                planet_view.window.show_view(planet_view)
+
+        from .combat_window import CombatWindow  # local import avoids circular deps
+        self.window.show_view(
+            CombatWindow(
+                network=self.network,
+                session=session,
+                on_combat_end=on_combat_end,
+                player_tex=player_tex,
+                enemy_tex=enemy_tex,
+                spec_status=spec_status,
+            )
+        )
 
     def on_mouse_release(self, x, y, button, modifiers):
         self.action_slider_dragging = False
@@ -9012,7 +9047,6 @@ class PlanetView(arcade.View):
         status = self.combat_session.get("status", "")
 
         if status == "LOST_AND_FLED":
-            self._play_sfx("combat", "combat_retreat")
             self.combat_session = None
             self.combat_commitment = 1
             self.combat_flash_timer = 0.0
@@ -9027,12 +9061,8 @@ class PlanetView(arcade.View):
 
         if result == "WON":
             self.orbit_message_color = COLOR_PRIMARY
-            self._play_sfx("combat", "combat_victory")
         elif result in ("LOST", "FLED"):
             self.orbit_message_color = COLOR_ACCENT
-            self._play_sfx(
-                "combat", "combat_defeat" if result == "LOST" else "combat_retreat"
-            )
             self.mode = "ORBIT"
         else:
             self.orbit_message_color = COLOR_SECONDARY
