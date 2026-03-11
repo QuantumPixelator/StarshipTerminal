@@ -19,6 +19,14 @@ from logging_config import (
 )
 
 
+def _strip_session(s):
+    """Return a copy of a combat session dict with non-JSON-serializable fields removed."""
+    if not isinstance(s, dict):
+        return s
+    _SKIP = {"target_ref"}
+    return {k: v for k, v in s.items() if k not in _SKIP}
+
+
 def _h_get_orbit_targets(server, session, gm, params):
     targets = gm.get_orbit_targets()
     serialized_targets = []
@@ -109,7 +117,7 @@ def _h_start_combat_session(server, session, gm, params):
     return {
         "success": bool(started),
         "message": str(msg),
-        "session": combat_session,
+        "session": _strip_session(combat_session),
     }
 
 
@@ -141,7 +149,7 @@ def _h_resolve_combat_round(server, session, gm, params):
     return {
         "success": bool(success),
         "message": str(msg),
-        "session": combat_session,
+        "session": _strip_session(combat_session),
     }
 
 
@@ -180,7 +188,7 @@ def _h_fire_special_weapon(server, session, gm, params):
                 "success": False,
                 "message": "No special weapon equipped",
                 "result": {},
-                "session": combat_session,
+                "session": _strip_session(combat_session),
             }
 
         success, msg, result = gm.fire_special_weapon(combat_session)
@@ -198,7 +206,7 @@ def _h_fire_special_weapon(server, session, gm, params):
             "success": bool(success),
             "message": str(msg),
             "result": result if result else {},
-            "session": combat_session,
+            "session": _strip_session(combat_session),
         }
     except Exception as e:
         logger = get_combat_logger()

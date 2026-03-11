@@ -7040,19 +7040,19 @@ class PlanetView(arcade.View):
             return
 
         if self.mode == "RESOURCES":
-            if key in (arcade.key._1, arcade.key.NUM_1):
+            if key in (arcade.key.KEY_1, arcade.key.NUM_1):
                 self.resource_selected_index = 0
                 return
-            if key in (arcade.key._2, arcade.key.NUM_2):
+            if key in (arcade.key.KEY_2, arcade.key.NUM_2):
                 self.resource_selected_index = 1
                 return
-            if key in (arcade.key._3, arcade.key.NUM_3):
+            if key in (arcade.key.KEY_3, arcade.key.NUM_3):
                 self.resource_selected_index = 2
                 return
-            if key in (arcade.key._4, arcade.key.NUM_4):
+            if key in (arcade.key.KEY_4, arcade.key.NUM_4):
                 self.resource_selected_index = 3
                 return
-            if key in (arcade.key._5, arcade.key.NUM_5):
+            if key in (arcade.key.KEY_5, arcade.key.NUM_5):
                 self.resource_selected_index = 4
                 return
             if key in (arcade.key.LEFT, arcade.key.A):
