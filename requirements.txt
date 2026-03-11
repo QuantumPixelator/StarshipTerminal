@@ -1,0 +1,7 @@
+# Starship Terminal game dependencies
+websockets
+bcrypt
+customtkinter
+arcade
+# Development and testing
+pytest

@@ -1,0 +1,311 @@
+{
+  "sfx_source": {
+    "title": "The Essential Retro Video Game Sound Effects Collection [512 sounds]",
+    "author": "Juhani Junkala / SubspaceAudio",
+    "url": "https://opengameart.org/content/512-sound-effects-8-bit-style",
+    "license": "CC0 1.0"
+  },
+  "music_sources": {
+    "music/mainmenu.mp3": {
+      "url": "https://opengameart.org/sites/default/files/Insert%20Coin_1.mp3",
+      "title": "Insert Coin",
+      "author": "megupets",
+      "page": "https://opengameart.org/content/insert-coin",
+      "license": "CC0 1.0"
+    },
+    "music/exploration.ogg": {
+      "url": "https://opengameart.org/sites/default/files/Strut.oggvorbis.ogg",
+      "title": "Strut",
+      "author": "Chasersgaming",
+      "page": "https://opengameart.org/content/strut",
+      "license": "CC0 1.0"
+    },
+    "music/combat.ogg": {
+      "url": "https://opengameart.org/sites/default/files/chipscape.oggvorbis.ogg",
+      "title": "ChipScape",
+      "author": "Chasersgaming",
+      "page": "https://opengameart.org/content/chipscape",
+      "license": "CC0 1.0"
+    },
+    "music/planet.ogg": {
+      "url": "https://opengameart.org/sites/default/files/29%20Victorious%208-bit_0.ogg",
+      "title": "Victorious",
+      "author": "SpiderDave",
+      "page": "https://opengameart.org/content/victorious",
+      "license": "CC0 1.0"
+    }
+  },
+  "integrated_files": {
+    "ui/menu_select.wav": {
+      "client_path": "client/assets/audio/ui/menu_select.wav",
+      "server_path": "server/assets/audio/ui/menu_select.wav",
+      "source_hint": "General Sounds/Menu Sounds/sfx_menu_select1.wav"
+    },
+    "ui/menu_hover.wav": {
+      "client_path": "client/assets/audio/ui/menu_hover.wav",
+      "server_path": "server/assets/audio/ui/menu_hover.wav",
+      "source_hint": "General Sounds/Menu Sounds/sfx_menu_move1.wav"
+    },
+    "ui/confirm.wav": {
+      "client_path": "client/assets/audio/ui/confirm.wav",
+      "server_path": "server/assets/audio/ui/confirm.wav",
+      "source_hint": "General Sounds/Positive Sounds/sfx_sounds_powerup1.wav"
+    },
+    "ui/cancel.wav": {
+      "client_path": "client/assets/audio/ui/cancel.wav",
+      "server_path": "server/assets/audio/ui/cancel.wav",
+      "source_hint": "General Sounds/Negative Sounds/sfx_sounds_error1.wav"
+    },
+    "ui/error.wav": {
+      "client_path": "client/assets/audio/ui/error.wav",
+      "server_path": "server/assets/audio/ui/error.wav",
+      "source_hint": "General Sounds/Negative Sounds/sfx_sounds_error10.wav"
+    },
+    "ui/success.wav": {
+      "client_path": "client/assets/audio/ui/success.wav",
+      "server_path": "server/assets/audio/ui/success.wav",
+      "source_hint": "General Sounds/Positive Sounds/sfx_sounds_powerup12.wav"
+    },
+    "trading/purchase.wav": {
+      "client_path": "client/assets/audio/trading/purchase.wav",
+      "server_path": "server/assets/audio/trading/purchase.wav",
+      "source_hint": "General Sounds/Coins/sfx_coin_single4.wav"
+    },
+    "trading/sale.wav": {
+      "client_path": "client/assets/audio/trading/sale.wav",
+      "server_path": "server/assets/audio/trading/sale.wav",
+      "source_hint": "General Sounds/Coins/sfx_coin_single6.wav"
+    },
+    "trading/credits_transfer.wav": {
+      "client_path": "client/assets/audio/trading/credits_transfer.wav",
+      "server_path": "server/assets/audio/trading/credits_transfer.wav",
+      "source_hint": "General Sounds/Coins/sfx_coin_cluster2.wav"
+    },
+    "trading/contract_accept.wav": {
+      "client_path": "client/assets/audio/trading/contract_accept.wav",
+      "server_path": "server/assets/audio/trading/contract_accept.wav",
+      "source_hint": "General Sounds/Positive Sounds/sfx_sounds_powerup8.wav"
+    },
+    "trading/contract_complete.wav": {
+      "client_path": "client/assets/audio/trading/contract_complete.wav",
+      "server_path": "server/assets/audio/trading/contract_complete.wav",
+      "source_hint": "General Sounds/Positive Sounds/sfx_sounds_powerup16.wav"
+    },
+    "combat/combat_start.wav": {
+      "client_path": "client/assets/audio/combat/combat_start.wav",
+      "server_path": "server/assets/audio/combat/combat_start.wav",
+      "source_hint": "General Sounds/Alarms/Alarms/sfx_alarm_loop2.wav"
+    },
+    "combat/combat_fire.wav": {
+      "client_path": "client/assets/audio/combat/combat_fire.wav",
+      "server_path": "server/assets/audio/combat/combat_fire.wav",
+      "source_hint": "Weapons/Lasers/sfx_wpn_laser8.wav"
+    },
+    "combat/combat_hit.wav": {
+      "client_path": "client/assets/audio/combat/combat_hit.wav",
+      "server_path": "server/assets/audio/combat/combat_hit.wav",
+      "source_hint": "General Sounds/Simple Damage Sounds/sfx_damage_hit2.wav"
+    },
+    "combat/combat_miss.wav": {
+      "client_path": "client/assets/audio/combat/combat_miss.wav",
+      "server_path": "server/assets/audio/combat/combat_miss.wav",
+      "source_hint": "Weapons/Lasers/sfx_wpn_laser7.wav"
+    },
+    "combat/shield_hit.wav": {
+      "client_path": "client/assets/audio/combat/shield_hit.wav",
+      "server_path": "server/assets/audio/combat/shield_hit.wav",
+      "source_hint": "General Sounds/Simple Damage Sounds/sfx_damage_hit7.wav"
+    },
+    "combat/hull_damage.wav": {
+      "client_path": "client/assets/audio/combat/hull_damage.wav",
+      "server_path": "server/assets/audio/combat/hull_damage.wav",
+      "source_hint": "General Sounds/Negative Sounds/sfx_sounds_damage2.wav"
+    },
+    "combat/critical_hit.wav": {
+      "client_path": "client/assets/audio/combat/critical_hit.wav",
+      "server_path": "server/assets/audio/combat/critical_hit.wav",
+      "source_hint": "Explosions/Short/sfx_exp_short_hard6.wav"
+    },
+    "combat/special_weapon_ready.wav": {
+      "client_path": "client/assets/audio/combat/special_weapon_ready.wav",
+      "server_path": "server/assets/audio/combat/special_weapon_ready.wav",
+      "source_hint": "General Sounds/Positive Sounds/sfx_sounds_powerup4.wav"
+    },
+    "combat/special_weapon_fire.wav": {
+      "client_path": "client/assets/audio/combat/special_weapon_fire.wav",
+      "server_path": "server/assets/audio/combat/special_weapon_fire.wav",
+      "source_hint": "Weapons/Lasers/sfx_wpn_laser11.wav"
+    },
+    "combat/special_weapon_cooldown.wav": {
+      "client_path": "client/assets/audio/combat/special_weapon_cooldown.wav",
+      "server_path": "server/assets/audio/combat/special_weapon_cooldown.wav",
+      "source_hint": "General Sounds/Negative Sounds/sfx_sounds_error4.wav"
+    },
+    "combat/combat_victory.wav": {
+      "client_path": "client/assets/audio/combat/combat_victory.wav",
+      "server_path": "server/assets/audio/combat/combat_victory.wav",
+      "source_hint": "General Sounds/Positive Sounds/sfx_sounds_powerup14.wav"
+    },
+    "combat/combat_defeat.wav": {
+      "client_path": "client/assets/audio/combat/combat_defeat.wav",
+      "server_path": "server/assets/audio/combat/combat_defeat.wav",
+      "source_hint": "General Sounds/Negative Sounds/sfx_sounds_error13.wav"
+    },
+    "combat/combat_retreat.wav": {
+      "client_path": "client/assets/audio/combat/combat_retreat.wav",
+      "server_path": "server/assets/audio/combat/combat_retreat.wav",
+      "source_hint": "Movement/Portals and Transitions/sfx_movement_portal1.wav"
+    },
+    "ship/engine_startup.wav": {
+      "client_path": "client/assets/audio/ship/engine_startup.wav",
+      "server_path": "server/assets/audio/ship/engine_startup.wav",
+      "source_hint": "Movement/Opening Doors/sfx_movement_dooropen2.wav"
+    },
+    "ship/engine_running.wav": {
+      "client_path": "client/assets/audio/ship/engine_running.wav",
+      "server_path": "server/assets/audio/ship/engine_running.wav",
+      "source_hint": "Weapons/Machinegun/sfx_wpn_machinegun_loop2.wav"
+    },
+    "ship/jump_charge.wav": {
+      "client_path": "client/assets/audio/ship/jump_charge.wav",
+      "server_path": "server/assets/audio/ship/jump_charge.wav",
+      "source_hint": "Movement/Jumping and Landing/sfx_movement_jump13.wav"
+    },
+    "ship/jump_execute.wav": {
+      "client_path": "client/assets/audio/ship/jump_execute.wav",
+      "server_path": "server/assets/audio/ship/jump_execute.wav",
+      "source_hint": "Movement/Portals and Transitions/sfx_movement_portal3.wav"
+    },
+    "ship/module_install.wav": {
+      "client_path": "client/assets/audio/ship/module_install.wav",
+      "server_path": "server/assets/audio/ship/module_install.wav",
+      "source_hint": "General Sounds/Positive Sounds/sfx_sounds_powerup8.wav"
+    },
+    "ship/module_remove.wav": {
+      "client_path": "client/assets/audio/ship/module_remove.wav",
+      "server_path": "server/assets/audio/ship/module_remove.wav",
+      "source_hint": "Movement/Opening Doors/sfx_movement_dooropen3.wav"
+    },
+    "ship/upgrade_install.wav": {
+      "client_path": "client/assets/audio/ship/upgrade_install.wav",
+      "server_path": "server/assets/audio/ship/upgrade_install.wav",
+      "source_hint": "General Sounds/Positive Sounds/sfx_sounds_powerup14.wav"
+    },
+    "ship/shield_active.wav": {
+      "client_path": "client/assets/audio/ship/shield_active.wav",
+      "server_path": "server/assets/audio/ship/shield_active.wav",
+      "source_hint": "General Sounds/Neutral Sounds/sfx_sound_neutral3.wav"
+    },
+    "ship/shield_low.wav": {
+      "client_path": "client/assets/audio/ship/shield_low.wav",
+      "server_path": "server/assets/audio/ship/shield_low.wav",
+      "source_hint": "General Sounds/Alarms/Low health Alarms/sfx_lowhealth_alarmloop3.wav"
+    },
+    "ship/hull_breach.wav": {
+      "client_path": "client/assets/audio/ship/hull_breach.wav",
+      "server_path": "server/assets/audio/ship/hull_breach.wav",
+      "source_hint": "General Sounds/Alarms/Alarms/sfx_alarm_loop7.wav"
+    },
+    "planet/planet_docking.wav": {
+      "client_path": "client/assets/audio/planet/planet_docking.wav",
+      "server_path": "server/assets/audio/planet/planet_docking.wav",
+      "source_hint": "Movement/Portals and Transitions/sfx_movement_portal2.wav"
+    },
+    "planet/planet_departure.wav": {
+      "client_path": "client/assets/audio/planet/planet_departure.wav",
+      "server_path": "server/assets/audio/planet/planet_departure.wav",
+      "source_hint": "Movement/Portals and Transitions/sfx_movement_portal4.wav"
+    },
+    "planet/planet_scan.wav": {
+      "client_path": "client/assets/audio/planet/planet_scan.wav",
+      "server_path": "server/assets/audio/planet/planet_scan.wav",
+      "source_hint": "General Sounds/Positive Sounds/sfx_sounds_powerup10.wav"
+    },
+    "planet/orbit_alert.wav": {
+      "client_path": "client/assets/audio/planet/orbit_alert.wav",
+      "server_path": "server/assets/audio/planet/orbit_alert.wav",
+      "source_hint": "General Sounds/Alarms/Alarms/sfx_alarm_loop5.wav"
+    },
+    "alerts/notification.wav": {
+      "client_path": "client/assets/audio/alerts/notification.wav",
+      "server_path": "server/assets/audio/alerts/notification.wav",
+      "source_hint": "General Sounds/Menu Sounds/sfx_menu_select4.wav"
+    },
+    "alerts/mail_received.wav": {
+      "client_path": "client/assets/audio/alerts/mail_received.wav",
+      "server_path": "server/assets/audio/alerts/mail_received.wav",
+      "source_hint": "General Sounds/Menu Sounds/sfx_menu_select5.wav"
+    },
+    "alerts/target_acquired.wav": {
+      "client_path": "client/assets/audio/alerts/target_acquired.wav",
+      "server_path": "server/assets/audio/alerts/target_acquired.wav",
+      "source_hint": "General Sounds/Positive Sounds/sfx_sounds_powerup6.wav"
+    },
+    "alerts/enemy_detected.wav": {
+      "client_path": "client/assets/audio/alerts/enemy_detected.wav",
+      "server_path": "server/assets/audio/alerts/enemy_detected.wav",
+      "source_hint": "General Sounds/Alarms/Alarms/sfx_alarm_loop4.wav"
+    },
+    "alerts/alarm.wav": {
+      "client_path": "client/assets/audio/alerts/alarm.wav",
+      "server_path": "server/assets/audio/alerts/alarm.wav",
+      "source_hint": "General Sounds/Alarms/Alarms/sfx_alarm_loop8.wav"
+    },
+    "special_weapons/special_weapon_default.wav": {
+      "client_path": "client/assets/audio/special_weapons/special_weapon_default.wav",
+      "server_path": "server/assets/audio/special_weapons/special_weapon_default.wav",
+      "source_hint": "Weapons/Lasers/sfx_wpn_laser12.wav"
+    },
+    "special_weapons/ion_blast.wav": {
+      "client_path": "client/assets/audio/special_weapons/ion_blast.wav",
+      "server_path": "server/assets/audio/special_weapons/ion_blast.wav",
+      "source_hint": "Weapons/Lasers/sfx_wpn_laser9.wav"
+    },
+    "special_weapons/emp_surge.wav": {
+      "client_path": "client/assets/audio/special_weapons/emp_surge.wav",
+      "server_path": "server/assets/audio/special_weapons/emp_surge.wav",
+      "source_hint": "General Sounds/Positive Sounds/sfx_sounds_powerup5.wav"
+    },
+    "special_weapons/focus_fire.wav": {
+      "client_path": "client/assets/audio/special_weapons/focus_fire.wav",
+      "server_path": "server/assets/audio/special_weapons/focus_fire.wav",
+      "source_hint": "Weapons/Lasers/sfx_wpn_laser10.wav"
+    },
+    "music/mainmenu.mp3": {
+      "client_path": "client/assets/audio/music/mainmenu.mp3",
+      "server_path": "server/assets/audio/music/mainmenu.mp3",
+      "source_hint": "https://opengameart.org/sites/default/files/Insert%20Coin_1.mp3",
+      "title": "Insert Coin",
+      "author": "megupets",
+      "source_page": "https://opengameart.org/content/insert-coin",
+      "license": "CC0 1.0"
+    },
+    "music/exploration.ogg": {
+      "client_path": "client/assets/audio/music/exploration.ogg",
+      "server_path": "server/assets/audio/music/exploration.ogg",
+      "source_hint": "https://opengameart.org/sites/default/files/Strut.oggvorbis.ogg",
+      "title": "Strut",
+      "author": "Chasersgaming",
+      "source_page": "https://opengameart.org/content/strut",
+      "license": "CC0 1.0"
+    },
+    "music/combat.ogg": {
+      "client_path": "client/assets/audio/music/combat.ogg",
+      "server_path": "server/assets/audio/music/combat.ogg",
+      "source_hint": "https://opengameart.org/sites/default/files/chipscape.oggvorbis.ogg",
+      "title": "ChipScape",
+      "author": "Chasersgaming",
+      "source_page": "https://opengameart.org/content/chipscape",
+      "license": "CC0 1.0"
+    },
+    "music/planet.ogg": {
+      "client_path": "client/assets/audio/music/planet.ogg",
+      "server_path": "server/assets/audio/music/planet.ogg",
+      "source_hint": "https://opengameart.org/sites/default/files/29%20Victorious%208-bit_0.ogg",
+      "title": "Victorious",
+      "author": "SpiderDave",
+      "source_page": "https://opengameart.org/content/victorious",
+      "license": "CC0 1.0"
+    }
+  }
+}

@@ -1,0 +1,329 @@
+Name: Novos
+Population: 410,000
+Description: A volcanic smuggler port where magnetic storms scramble scans and create short windows for risky, high-margin trades.
+Vendor: Vex Korr
+Trade Center: Eclipse Port
+Defenders: 3,200
+Shields: 7,800
+Bank: Off
+Items: Warp Drives,357;Fighter Squadron,148;Stealth Cloaking Devices,376;Black Market Passkey,305;Hyperdrive Stabilizers,206;Fuel Cells,94;Cryogenic Stasis Pods,372;Photon Destabilizer,688;Cargo Pod,147
+Active: On
+
+Name: Urth
+Population: 980,000
+Description: A battered legacy world that still anchors baseline pricing for lawful sectors, favored by careful commanders starting new routes.
+Vendor: Old Teddy
+Trade Center: Skytown Mall
+Defenders: 2,600
+Shields: 6,400
+Bank: On
+Items: Asteroid Mining Drones,142;Black Market Passkey,348;Warp Drives,278;Terraform Seed Vault,282;Cargo Pod,157;Fuel Cells,62;Ion Thruster Coils,274;Exotic Alien Artifacts,487;Psychedelic Fog Machine,147
+Active: On
+
+Name: Mastodrun
+Population: 3,780,000
+Description: The sector's central exchange where bulk commodities are efficient but prestige and luxury goods command steep premiums.
+Vendor: Galactic Traders Guild
+Trade Center: Starlight Exchange
+Defenders: 6,800
+Shields: 16,000
+Bank: On
+Items: Quantum Data Chips,247;Solar Seafood Platter,58;Shield Capacitor Matrix,402;Asteroid Mining Drones,110;Gravity Manipulation Cores,324;Encrypted Star Charts,195;Photon Destabilizer,490;Nuclear Heater Core,274;Cheap Plastic Toys,39;Magnetic Rail Couplers,143;Cybernetic Implants,378;Cargo Pod,188
+Active: On
+
+Name: Zephyrion
+Population: 2,140,000
+Description: A precision-tech megacity that discounts core utility gear but marks up premium neural and cryogenic upgrades.
+Vendor: Nexus Technologies
+Trade Center: Cybernetic Emporium
+Defenders: 4,200
+Shields: 9,800
+Bank: Off
+Items: Stealth Cloaking Devices,522;Nanobot Repair Kits,85;Emergency Med Gel,203;Gravity Manipulation Cores,292;Hyperdrive Stabilizers,150;Fuel Cells,75;Solar Seafood Platter,31;Cheap Plastic Toys,43;Magnetic Rail Couplers,205;Warp Drives,292;Energy Shields,350
+Active: On
+
+Name: Nebula Vista
+Population: 1,690,000
+Description: A frontier relay inside ionized dust clouds where logistics delays make essentials cheap and relic cargo expensive.
+Vendor: Astral Relics
+Trade Center: Nebula Bazaar
+Defenders: 2,900
+Shields: 7,000
+Bank: Off
+Items: Solar Seafood Platter,32;Asteroid Mining Drones,274;Encrypted Star Charts,164;Cheap Plastic Toys,25;Fighter Squadron,111;Energy Shields,196;Gravity Manipulation Cores,438;Purified Water Extractor,194;Shield Capacitor Matrix,330;Holographic Projectors,123;Black Market Passkey,471;Nanobot Repair Kits,77
+Active: On
+
+Name: Gaianeesh
+Population: 2,870,000
+Description: A bio-engineering world where regenerative supplies are abundant while exotic curios and climate hardware run hot.
+Vendor: Verdant Ventures
+Trade Center: Biomimicry Expanse
+Defenders: 3,600
+Shields: 8,600
+Bank: Off
+Items: Fuel Cells,126;Exotic Alien Artifacts,479;Magnetic Rail Couplers,134;Fusion Reactors,394;Purified Water Extractor,277;Shield Capacitor Matrix,322;Ion Thruster Coils,179;Emergency Med Gel,160;Universal Language Translators,188;Cybernetic Implants,416
+Active: On
+
+Name: Arcaniska
+Population: 1,320,000
+Description: A shadow-academy world of relic auctions and unstable prototypes, with severe spreads between common and forbidden tech.
+Vendor: Enigmatic Exports
+Trade Center: Mystical Enclave
+Defenders: 2,500
+Shields: 6,200
+Bank: Off
+Items: Frigid Air Appliance,247;Quantum Data Chips,220;Emergency Med Gel,160;Asteroid Mining Drones,273;Nuclear Heater Core,160;Exotic Alien Artifacts,372;Nanobot Repair Kits,74;Ion Thruster Coils,150;Black Market Passkey,667;Cryogenic Stasis Pods,532;Photon Destabilizer,618;Psychedelic Fog Machine,103
+Active: On
+
+Name: Titan Station
+Population: 560,000
+Description: A hardened orbital station where shipping bottlenecks spike strategic modules while refinery byproducts sell below average.
+Vendor: Celestial Commodities
+Trade Center: Stellar Emporium
+Defenders: 3,400
+Shields: 8,400
+Bank: Off
+Items: Magnetic Rail Couplers,137;Frigid Air Appliance,228;Ion Thruster Coils,168;Photon Destabilizer,618;Terraform Seed Vault,230;Asteroid Mining Drones,287;Stealth Cloaking Devices,403;Shield Capacitor Matrix,365;Exotic Alien Artifacts,413;Psychedelic Fog Machine,67;Nuclear Heater Core,177
+Active: On
+
+Name: Avalon
+Population: 1,210,000
+Description: A high-culture leisure world where boutique therapies run rich but basic recreation and hydration can be sourced cheaply.
+Vendor: Artisana Exquisites
+Trade Center: Serenity Plaza
+Defenders: 2,400
+Shields: 6,000
+Bank: Off
+Items: Solar Seafood Platter,32;Frigid Air Appliance,183;Nanobot Repair Kits,121;Terraform Seed Vault,333;Cargo Pod,200;Neural Interface Upgrades,225;Psychedelic Fog Machine,91;Holographic Projectors,183
+Active: On
+
+Name: Greystoke
+Population: 730,000
+Description: A hostile jungle reserve famous for black-market biotech salvage, rewarding dangerous runs with volatile arbitrage.
+Vendor: Verdant Ventura
+Trade Center: Bio-Exotica Hub
+Defenders: 2,100
+Shields: 5,200
+Bank: Off
+Items: Fusion Reactors,463;Cryogenic Stasis Pods,316;Nuclear Heater Core,214;Magnetic Rail Couplers,135;Cheap Plastic Toys,41;Shield Capacitor Matrix,406;Quantum Data Chips,115;Stealth Cloaking Devices,272
+Active: On
+
+Name: Shadien
+Population: 1,450,000
+Description: A contraband crossroads where fast cash flows through illicit channels and legal freight is often undercut.
+Vendor: Jax the Ghost
+Trade Center: Black Market Bazaar
+Defenders: 3,300
+Shields: 7,900
+Bank: Off
+Items: Fuel Cells,57;Cargo Pod,165;Frigid Air Appliance,293;Energy Shields,208;Ion Thruster Coils,164;Purified Water Extractor,301;Shield Capacitor Matrix,288;Nuclear Heater Core,271;Photon Destabilizer,569;Cheap Plastic Toys,47
+Active: On
+
+Name: Celestia
+Population: 4,690,000
+Description: The Alliance capital enforces strict tariffs: military-grade and imported hardware trend expensive while regulated services stay stable.
+Vendor: High Officer Vale
+Trade Center: Unity Plaza
+Defenders: 9,200
+Shields: 22,000
+Bank: On
+Items: Quantum Data Chips,165;Cybernetic Implants,472;Photon Destabilizer,299;Terraform Seed Vault,363;Cargo Pod,105;Universal Language Translators,98;Emergency Med Gel,104;Bio-Regeneration Serums,224;Fusion Reactors,357;Shield Capacitor Matrix,399;Purified Water Extractor,398
+Active: On
+
+Name: Aetheria
+Population: 1,930,000
+Description: Floating shard-cities built around energy vortices where gravity tech can be cheap but arcane signaling gear spikes hard.
+Vendor: Arcane Curiosities
+Trade Center: Cloudspire Enclave
+Defenders: 3,000
+Shields: 7,300
+Bank: Off
+Items: Emergency Med Gel,114;Purified Water Extractor,253;Fuel Cells,79;Bio-Regeneration Serums,215;Black Market Passkey,305;Ion Thruster Coils,367;Photon Destabilizer,527;Cheap Plastic Toys,58;Hyperdrive Stabilizers,243
+Active: On
+
+Name: Pyrothos
+Population: 840,000
+Description: A furnace-world weapons market where cooling systems and purification hardware are scarce and therefore brutally priced.
+Vendor: Inferno Armaments
+Trade Center: Scorched Citadel
+Defenders: 3,000
+Shields: 7,200
+Bank: Off
+Items: Cheap Plastic Toys,42;Magnetic Rail Couplers,196;Fuel Cells,105;Encrypted Star Charts,174;Hyperdrive Stabilizers,177;Health Stabilizer Kit,111;Asteroid Mining Drones,193;Photon Destabilizer,275
+Active: On
+
+Name: Solaris
+Population: 3,210,000
+Description: A star-adjacent power economy where reactor inputs are discounted but thermal management and precision propulsion are costly.
+Vendor: HelioTech Industries
+Trade Center: Solara Hub
+Defenders: 3,900
+Shields: 9,500
+Bank: On
+Items: Photon Destabilizer,356;Neural Interface Upgrades,494;Cryogenic Stasis Pods,468;Nanobot Repair Kits,71;Frigid Air Appliance,228;Quantum Data Chips,195;Bio-Regeneration Serums,349;Emergency Med Gel,150;Gravity Manipulation Cores,424;Terraform Seed Vault,312
+Active: On
+
+Name: Terrarin
+Population: 2,750,000
+Description: A retro-commercial world that rewards commodity nostalgia runs while charging premiums for curated collector cargo.
+Vendor: Retro Reboot
+Trade Center: Nostalgia Junction
+Defenders: 3,400
+Shields: 8,200
+Bank: Off
+Items: Cheap Plastic Toys,27;Cryogenic Stasis Pods,335;Hyperdrive Stabilizers,116;Frigid Air Appliance,299;Magnetic Rail Couplers,191;Cybernetic Implants,455;Encrypted Star Charts,119;Asteroid Mining Drones,285;Psychedelic Fog Machine,111;Nuclear Heater Core,190
+Active: On
+
+Name: Elysium
+Population: 2,430,000
+Description: A luxury resort sphere where indulgence goods are expensive but staple life-support consumables can be sourced below market.
+Vendor: Serenity Splendors
+Trade Center: Eden Haven
+Defenders: 3,200
+Shields: 7,600
+Bank: Off
+Items: Exotic Alien Artifacts,276;Hyperdrive Stabilizers,306;Fighter Squadron,230;Ion Thruster Coils,299;Bio-Regeneration Serums,325;Cybernetic Implants,567;Fusion Reactors,530;Gravity Manipulation Cores,363
+Active: On
+
+Name: Titanica
+Population: 670,000
+Description: A mining moon with ruin salvage rights where heavy equipment and hardened components dominate local price swings.
+Vendor: Lunar Traders Consortium
+Trade Center: Crater's Edge Outpost
+Defenders: 2,800
+Shields: 6,900
+Bank: Off
+Items: Stealth Cloaking Devices,462;Holographic Projectors,143;Ion Thruster Coils,252;Warp Drives,162;Neural Interface Upgrades,386;Magnetic Rail Couplers,216;Emergency Med Gel,136;Quantum Data Chips,237;Exotic Alien Artifacts,241;Fighter Squadron,143;Hyperdrive Stabilizers,252;Universal Language Translators,194
+Active: On
+
+Name: Euphorin
+Population: 2,260,000
+Description: An AI-governed cyberstate that discounts mature electronics while charging heavily for secure infrastructure and elite modules.
+Vendor: ZenTech Innovations
+Trade Center: Synaptic Nexus
+Defenders: 4,100
+Shields: 9,800
+Bank: Off
+Items: Stealth Cloaking Devices,691;Cheap Plastic Toys,26;Energy Shields,375;Terraform Seed Vault,387;Black Market Passkey,801;Frigid Air Appliance,173;Fighter Squadron,166;Ion Thruster Coils,165;Neural Interface Upgrades,365;Purified Water Extractor,386;Quantum Data Chips,239;Holographic Projectors,106
+Active: On
+
+Name: Aphelion
+Population: 790,000
+Description: A law-thin edge outpost where contraband and tactical gear are lucrative but trusted utility channels are limited.
+Vendor: Black Market Syndicate
+Trade Center: Outlaw's Haven
+Defenders: 3,600
+Shields: 8,800
+Bank: Off
+Items: Cargo Pod,218;Nuclear Heater Core,196;Emergency Med Gel,155;Energy Shields,268;Neural Interface Upgrades,393;Warp Drives,218;Purified Water Extractor,320;Cheap Plastic Toys,57
+Active: On
+
+Name: Aurora
+Population: 1,810,000
+Description: A cryo-industrial world where thermal balance drives trade cycles: cold-chain tech is cheap, heaters and water are expensive.
+Vendor: CryoTech Solutions
+Trade Center: Frostfall Bazaar
+Defenders: 3,100
+Shields: 7,600
+Bank: Off
+Items: Frigid Air Appliance,243;Exotic Alien Artifacts,488;Ion Thruster Coils,263;Cybernetic Implants,595;Cryogenic Stasis Pods,247;Bio-Regeneration Serums,153;Emergency Med Gel,118;Cargo Pod,175;Holographic Projectors,172;Gravity Manipulation Cores,228;Terraform Seed Vault,395
+Active: On
+
+Name: Hyperius
+Population: 3,020,000
+Description: A robotics foundry world with efficient automation staples and expensive advanced drivetrain and defense assemblies.
+Vendor: RoboCorp Enterprises
+Trade Center: Mechanica Central
+Defenders: 4,500
+Shields: 10,800
+Bank: On
+Items: Holographic Projectors,126;Cybernetic Implants,528;Magnetic Rail Couplers,183;Photon Destabilizer,441;Fighter Squadron,211;Ion Thruster Coils,268;Nanobot Repair Kits,92;Encrypted Star Charts,164;Cryogenic Stasis Pods,507;Stealth Cloaking Devices,562;Shield Capacitor Matrix,466;Warp Drives,196
+Active: On
+
+Name: Seraphim Cluster
+Population: 3,540,000
+Description: Pilgrimage-linked worlds where relic speculation causes wild markups while basic medical and language services remain accessible.
+Vendor: Celestial Sanctum
+Trade Center: Divine Nexus
+Defenders: 3,700
+Shields: 9,000
+Bank: Off
+Items: Psychedelic Fog Machine,144;Nuclear Heater Core,179;Asteroid Mining Drones,249;Gravity Manipulation Cores,242;Cargo Pod,173;Frigid Air Appliance,230;Terraform Seed Vault,368;Energy Shields,167;Stealth Cloaking Devices,606;Fusion Reactors,315;Bio-Regeneration Serums,341;Exotic Alien Artifacts,290
+Active: On
+
+Name: Asterudor
+Population: 2,660,000
+Description: A competitive mining frontier where bulk inputs are cheap but mission-critical survival and command goods can spike overnight.
+Vendor: Stellar Prospectors Guild
+Trade Center: Asteria Outpost
+Defenders: 4,300
+Shields: 10,400
+Bank: Off
+Items: Energy Shields,220;Universal Language Translators,91;Fusion Reactors,471;Warp Drives,311;Frigid Air Appliance,264;Fuel Cells,113;Terraform Seed Vault,215;Magnetic Rail Couplers,158;Cryogenic Stasis Pods,389;Shield Capacitor Matrix,426;Fighter Squadron,121;Nuclear Heater Core,206
+Active: On
+
+Name: Atlantiz
+Population: 2,080,000
+Description: An oceanic civilization with abundant marine staples and costly deep-pressure industrial components.
+Vendor: Aquatica Ventures
+Trade Center: Oceanic Bazaar
+Defenders: 3,000
+Shields: 7,300
+Bank: On
+Items: Magnetic Rail Couplers,149;Gravity Manipulation Cores,416;Hyperdrive Stabilizers,272;Shield Capacitor Matrix,214;Fuel Cells,80;Neural Interface Upgrades,401;Fusion Reactors,303;Exotic Alien Artifacts,340
+Active: On
+
+Name: Enerlos
+Population: 4,180,000
+Description: A heavy-industry titan where commodity throughput is excellent but high-energy combat and control systems carry sharp premiums.
+Vendor: TechnoCorp Industries
+Trade Center: Power Nexus Station
+Defenders: 6,200
+Shields: 15,000
+Bank: On
+Items: Holographic Projectors,197;Cargo Pod,227;Stealth Cloaking Devices,696;Health Stabilizer Kit,272;Ion Thruster Coils,278;Black Market Passkey,627;Nuclear Heater Core,340;Universal Language Translators,134;Fighter Squadron,159;Emergency Med Gel,141;Energy Shields,425;Magnetic Rail Couplers,172
+Active: On
+
+Name: Zednine
+Population: 60,500
+Description: A black-site research world under heavy patrol where rare access keys and sanctioned hardware dominate a tiny, extreme market.
+Vendor: Site Custodian J-09
+Trade Center: Restricted Exchange
+Defenders: 5,200
+Shields: 13,000
+Bank: Off
+Items: Psychedelic Fog Machine,108;Holographic Projectors,182;Quantum Data Chips,132;Asteroid Mining Drones,207;Cargo Pod,181;Nanobot Repair Kits,72;Purified Water Extractor,384;Fuel Cells,68;Health Stabilizer Kit,276;Hyperdrive Stabilizers,237
+Active: On
+
+Name: Infernix
+Population: 1,670,000
+Description: A newly stabilized lava world where route growth drives strong demand for infrastructure and coolant logistics.
+Vendor: Independent Market Authority
+Trade Center: Central Exchange
+Defenders: 3,400
+Shields: 8,200
+Bank: Off
+Items: Neural Interface Upgrades,266;Health Stabilizer Kit,130;Fuel Cells,52;Psychedelic Fog Machine,142;Warp Drives,187;Cheap Plastic Toys,56;Gravity Manipulation Cores,461;Exotic Alien Artifacts,297
+Active: On
+
+Name: Cryostar
+Population: 1000000
+Description: Cryostar is now open for trade and expansion.
+Vendor: Independent Market Authority
+Trade Center: Central Exchange
+Defenders: 1000
+Shields: 3000
+Bank: Off
+Items: Fuel Cells,80;Cargo Pod,150;Nanobot Repair Kits,95;Energy Shields,260;Fighter Squadron,140;Warp Drives,220;Quantum Data Chips,160;Purified Water Extractor,240
+Active: On
+
+Name: Lunoria
+Population: 1000000
+Description: Lunoria is now open for trade and expansion.
+Vendor: Independent Market Authority
+Trade Center: Central Exchange
+Defenders: 1000
+Shields: 3000
+Bank: Off
+Items: Fuel Cells,80;Cargo Pod,150;Nanobot Repair Kits,95;Energy Shields,260;Fighter Squadron,140;Warp Drives,220;Quantum Data Chips,160;Purified Water Extractor,240
+Active: On

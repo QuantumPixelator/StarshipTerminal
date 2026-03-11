@@ -1,0 +1,34 @@
+Fuel Cells,80,On,100
+Warp Drives,220,On,100
+Fighter Squadron,140,On,100
+Nanobot Repair Kits,95,On,100
+Energy Shields,260,On,100
+Exotic Alien Artifacts,340,On,100
+Hyperdrive Stabilizers,185,On,100
+Bio-Regeneration Serums,210,On,100
+Quantum Data Chips,160,On,100
+Stealth Cloaking Devices,420,On,100
+Asteroid Mining Drones,175,On,100
+Cheap Plastic Toys,35,On,100
+Gravity Manipulation Cores,300,On,100
+Fusion Reactors,390,On,100
+Solar Seafood Platter,45,On,100
+Holographic Projectors,125,On,100
+Universal Language Translators,145,On,100
+Cybernetic Implants,360,On,100
+Cryogenic Stasis Pods,330,On,100
+Neural Interface Upgrades,315,On,100
+Health Stabilizer Kit,175,On,100
+Nuclear Heater Core,205,On,100
+Psychedelic Fog Machine,90,On,100
+Frigid Air Appliance,185,On,100
+Photon Destabilizer,410,On,100
+Cargo Pod,150,On,100
+Purified Water Extractor,240,On,100
+Shield Capacitor Matrix,285,On,100
+Ion Thruster Coils,235,On,100
+Terraform Seed Vault,275,On,100
+Encrypted Star Charts,165,On,100
+Emergency Med Gel,130,On,100
+Black Market Passkey,480,On,100
+Magnetic Rail Couplers,155,On,100

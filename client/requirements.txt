@@ -1,0 +1,4 @@
+# Starship Terminal client runtime dependencies
+arcade
+websockets
+pytest
